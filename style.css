@@ -1,4 +1,51 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
 @font-face {
     font-family: 'Copyduck';
     src: url(assets/fonts/Copyduck.ttf);
+}
+
+:root{
+    --main-color : #03CFC4;
+}
+.textFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.footerConfiz{
+    font-family: 'Copyduck';
+    font-size: 20rem;
+}
+h3{
+    font-size: 5rem;
+}
+.navFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.verticalText{
+    writing-mode: vertical-rl;
+}
+
+.espacementfooter{
+    margin: 0 10%;
+}
+.contentFooter{
+    background-color: var(--main-color);
+    color: white;
+}
+.droitFooter{
+    display: flex;
+    justify-content: center;
 }
