@@ -16,7 +16,7 @@
                 <li class="espacementfooter">Catalogue</li>
             </ul>
             <div class="droitFooter">
-                <p>© Ethan COLLIN & Camille DREAN. Tous droits réservés</p>
+                <p>© Ethan COLLIN & Camille DREAN. Tous droits réservés !</p>
             </div>
         </div>
     </footer>

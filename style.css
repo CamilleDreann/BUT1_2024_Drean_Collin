@@ -7,13 +7,66 @@
     scroll-behavior: smooth;
 }
 
+/* font copyduck */
 @font-face {
     font-family: 'Copyduck';
     src: url(assets/fonts/Copyduck.ttf);
 }
 
+/* JosefinSans*/
+@font-face {
+    font-family: 'JosefinSans-Regular';
+    src: url(./assets/fonts/JosefinSans/JosefinSans-Regular.ttf);
+}
+
+
+@font-face {
+    font-family: 'JosefinBoldItalic';
+    src: url(./assets/fonts/JosefinSans/JosefinSans-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: 'JosefinLight';
+    src: url(./assets/fonts/JosefinSans/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: 'JosefinBold';
+    src: url(./assets/fonts/JosefinSans/JosefinSans-Bold.ttf);
+}
+
+/* fin josephin */
+
+/* rodger */
+@font-face {
+    font-family: 'RodgerTest-Regular';
+    src: url(./assets/fonts/Rodger_Test/RodgerTest-Regular.otf);
+}
+
+@font-face {
+    font-family: 'RodgerTestBlackItalic';
+    src: url(./assets/fonts/Rodger_Test/RodgerTest-BlackItalic.otf);
+}
+
+@font-face {
+    font-family: 'RodgerTestMedium';
+    src: url(./assets/fonts/Rodger_Test/RodgerTest-Medium.otf);
+}
+
+@font-face {
+    font-family: 'RodgerTestItalic';
+    src: url(./assets/fonts/Rodger_Test/RodgerTest-Italic.otf);
+}
+
+/* fin de rodger */
 :root{
     --main-color : #03CFC4;
+    --yellow : #FFE681;
+    --rose-primary : #FFCFF1;
+    --pink : #FA86D7;
+    --red : #FF817B;
+    --green : #25925A;
+
 }
 .textFooter{
     display: flex;
@@ -28,6 +81,7 @@
 }
 h3{
     font-size: 5rem;
+    font-family: 'RodgerTest-Regular';
 }
 .navFooter{
     display: flex;
@@ -39,7 +93,7 @@ h3{
 }
 
 .espacementfooter{
-    margin: 0 10%;
+    margin: 10px 10%;
 }
 .contentFooter{
     background-color: var(--main-color);
@@ -48,4 +102,159 @@ h3{
 .droitFooter{
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
+
+p{
+    font-family: 'JosefinSans-Regular';
+}
+
+li{
+    font-family: 'JosefinSans-Regular';
+
+}
+button{
+font-family: 'RodgerTestBlackItalic';
+}
+
+/* Avis */
+
+.div-avis-polygon{
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.avis-polygon{
+    max-width: 100%;
+    height: auto;
+}
+
+.div-content-polygon{
+    background-color: var(--yellow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-content-polygon > h2 {
+    margin: 25px 0;
+    font-family: 'Copyduck';
+    font-size: 4rem;
+    
+}
+
+.span-bleu{
+    color: var(--main-color) ;
+}
+
+.span-rose {
+    color: var(--pink);
+}
+
+.span-rouge{
+    color: var(--red);
+}
+
+.div-etoile{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-etoile > p {
+    font-size: 1.3rem;
+    margin: 0 15px;
+}
+
+.josephin-bold-italic {
+    font-family: 'JosefinBoldItalic';
+}
+
+.div-commentaire{
+    background-color: var(--yellow);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+
+    padding: 0 20px;
+}
+
+.commentaire{
+    background-color: white;
+    width: 420px;
+    height: 220px;
+    border-radius: 10px;
+
+
+    padding: 10px;
+}
+
+.nom-commentaire{
+    font-family: 'RodgerTestMedium';
+    font-size: 24px;
+
+}
+
+.text-commentaire{
+    margin: 10px 0;
+    font-family: 'JosefinLight';
+    font-size: 18px;
+
+}
+
+.heure-commentaire{
+    font-family: 'JosefinBold';
+    font-size: 16px;
+text-align: end;
+}
+
+.smileyAcheteur {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    
+}
+
+.smileyAcheteur > p {
+    font-size: 20px;
+    font-family: 'RodgerTestItalic';
+}
+
+
+
+.contact-avis{
+    background-color: var(--yellow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-avis > p {
+    margin: 30px 0;
+    font-family: 'RodgerTest-Regular';
+    font-size: 1.5rem;
+}
+
+.contact-avis > button {
+    margin: 20px 0;
+    background-color: black;
+    color: white;
+    height: 85px;
+    width: 250px;
+    border-radius: 20px;
+
+    font-size: 2rem;
+
+}
+
+/* Fin de Avis */
