@@ -68,6 +68,10 @@
     --green : #25925A;
 
 }
+
+.footer-svg{
+    margin: -20px 0;
+}
 .textFooter{
     display: flex;
     flex-direction: row;
@@ -257,4 +261,59 @@ text-align: end;
 
 }
 
+
+
 /* Fin de Avis */
+
+
+/* A propos */
+
+
+.content-apropos{
+    background-color:var(--red);
+
+}
+
+.txt-apropos{
+    
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.txt-apropos > h2 {
+    margin: 60px 0;
+    font-family: 'Copyduck';
+    font-size: 96px;
+}
+
+.txt-apropos > p {
+    text-align: center;
+    font-family: 'RodgerTestItalic';
+    font-size: 40px;
+    margin: auto 15%;
+}
+
+.span-vert{
+    color: var(--green);
+}
+
+.illustration-apropos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.illustration-apropos > img {
+    margin: -250px 0;
+    height: 1200px;
+   width: 1080px;
+   object-fit: cover;
+}
+
+
+
+/* Fin de à propos */
