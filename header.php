@@ -12,4 +12,6 @@
         <h3>Confiz, la plateforme festive qui met la confiserie à portée de clic !</h3>
         <img src="assets/images/bonbon.png" alt="personnage cartoon" title="personnage cartoon" height="500px" width="500px">
         <img src="assets/images/banane.png" alt="personnage cartoon" title="personnage cartoon" height="500px" width="500px">
+        <p>Salut toi</p>
     </header>
+
