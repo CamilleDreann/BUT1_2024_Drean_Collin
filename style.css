@@ -70,7 +70,7 @@ a:link{color: inherit;}
     --pink : #FA86D7;
     --red : #FF817B;
     --green : #25925A;
-
+    --yellow-secondary :#FFC33E ;
 }
 
 .footer-svg{
@@ -396,4 +396,61 @@ a:visited{
     width: fit-content;
     transform: rotate(-20deg);
     font-size: 3rem;
+}
+
+.BoutiqueConfiserie{
+   margin: 0 25%;
+   text-align: center;
+}
+h2{
+    font-family: 'Copyduck';
+    font-size: 6rem;
+}
+
+.redirection{
+    font-family: 'RodgerTestMedium';
+    -webkit-text-stroke: 1px var(--main-color);
+    color: white;
+    font-size: 1.5rem;
+}
+
+.blocConfiserie{
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    margin: 5% 0;
+}
+.prixConfiserie{
+    background-color: white;
+    position: relative;
+    top: -50px;
+    left: 170px;
+    width: 150px;
+    transform: rotate(-20deg);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.sachetbonbon{
+    width: 300px;
+}
+
+.confiserie{
+    background-color: var(--yellow);
+}
+
+.posConfiserie{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    margin: 0 10%;
+}
+
+.titreConfiserie{
+    -webkit-text-stroke: 2px var(--main-color);
+    color: white;
+}
+
+.colorConfiserie{
+    color: black;
 }
