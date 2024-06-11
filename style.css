@@ -74,7 +74,8 @@ a:link{color: inherit;}
 }
 
 .footer-svg{
-    margin: -20px 0;
+    margin: -200px 0;
+    
 }
 .textFooter{
     display: flex;
@@ -195,8 +196,7 @@ font-family: 'RodgerTestBlackItalic';
 
 .commentaire{
     background-color: white;
-    width: 420px;
-    height: 220px;
+    
     border-radius: 10px;
 
 
@@ -270,7 +270,7 @@ text-align: end;
 /* Fin de Avis */
 
 
-/* A propos */
+/*--------------- A propos----------------------- */
 
 
 .content-apropos{
@@ -312,7 +312,7 @@ text-align: end;
 }
 
 .illustration-apropos > img {
-    margin: -250px 0;
+    margin: -200px 0;
     height: 1200px;
    width: 1080px;
    object-fit: cover;
@@ -321,7 +321,7 @@ text-align: end;
 
 
 /* Fin de à propos */
-/* Fin de Avis */
+
 
 /* début boutique*/
 .divBoutique{
