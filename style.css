@@ -7,7 +7,10 @@
     scroll-behavior: smooth;
     box-sizing: border-box;
     text-decoration: none;
+    
 }
+
+
 
 a:link{color: inherit;}
 
@@ -37,6 +40,11 @@ a:link{color: inherit;}
 @font-face {
     font-family: 'JosefinBold';
     src: url(./assets/fonts/JosefinSans/JosefinSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'JosefinSemiBoldItalic';
+    src: url(./assets/fonts/JosefinSans/JosefinSans-SemiBoldItalic.ttf);
 }
 
 /* fin josephin */
@@ -73,6 +81,14 @@ a:link{color: inherit;}
     --yellow-secondary :#FFC33E ;
 }
 
+/* classe de background color pour le head  */
+.bg-index {
+    background-color:var(--main-color);
+}
+/*  */
+
+
+/* footer */
 .footer-svg{
     margin: -200px 0;
     
@@ -125,6 +141,124 @@ li{
 button{
 font-family: 'RodgerTestBlackItalic';
 }
+
+/* head */
+
+
+.barNav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ul-barNav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+    padding: 0 25px;
+}
+
+.ul-barNav > li {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.ul-barNav > li > a {
+    transition: transform 0.3s;
+}
+
+.ul-barNav > li > a:hover {
+    transform: translateY(-3px);
+}
+
+.menu {
+    justify-content: flex-start;
+}
+
+.logo {
+    justify-content: center;
+}
+
+.user-panier {
+    justify-content: flex-end;
+}
+
+.user-panier a {
+    margin-left: 20px;
+}
+
+.menu-barNav, .user-barNav, .panier-barNav {
+    width: 50px;
+    height: 50px;
+}
+
+.logo-barNav {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+/* fin de head */
+
+
+/* Header */
+
+header{
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+}
+
+header > h1 {
+    text-align: center;
+    margin: 25px ;
+}
+
+.txt-header{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.txt-header > img {
+    height: 300px; 
+    width: 300px; 
+    object-fit: cover;
+}
+
+.txt-header > p {
+    margin: 0 20px; 
+    font-family: 'JosefinSemiBoldItalic';
+font-size: 48px;
+width: 700px;
+text-align: center;
+color: white;
+}
+
+.text-header{
+    font-family: 'Copyduck';
+    font-size: 3rem;
+    fill: white;
+}
+
+#curve-header{
+    fill: transparent; 
+}
+
+.curvedTxt{
+    text-align: center;
+    margin-bottom: -20px; 
+
+}
+
+
+/* fin de header */
 
 /* Avis */
 
@@ -312,7 +446,7 @@ text-align: end;
 }
 
 .illustration-apropos > img {
-    margin: -200px 0;
+    margin: -240px 0;
     height: 1200px;
    width: 1080px;
    object-fit: cover;
@@ -326,6 +460,7 @@ text-align: end;
 /* début boutique*/
 .divBoutique{
     background-color: var(--rose-primary);
+    padding:30px 0;
 }
 
 .positionBoutique{
@@ -454,3 +589,7 @@ h2{
 .colorConfiserie{
     color: black;
 }
+/* fin de boutique  */
+
+
+
