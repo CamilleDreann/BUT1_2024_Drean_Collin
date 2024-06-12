@@ -87,9 +87,13 @@ a:link{color: inherit;}
 }
 .bg-confiserie {
     background-color:var(--yellow);
-
+}
 .bg-boutique{
     background-color: var(--rose-primary);
+}
+
+.bg-produitDetaille{
+    background-color:var(--yellow);
 }
 /*  */
 
@@ -741,3 +745,120 @@ h2{
     text-align: center;
 }
 /* FIn de connexion */
+
+.produitDetaille{
+    background-color: var(--yellow);
+}
+
+.posBonbon{
+    display: flex;
+    flex-direction: row;
+    margin: 0 10%;
+    gap : 30px;
+}
+.fondBonbon{
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.infoBonbon{
+    width: 50%;
+}
+
+.titreBonbon{
+    color: white;
+    font-size: 5rem;
+}
+
+.detailBonbon{
+    font-family: 'JosefinSans-Regular';
+    font-size: 3rem;
+}
+
+.detailBonbon span{
+    font-family: 'JosefinBold';
+}
+
+.blocConfiserie .btnConfiserie {
+    background-color: inherit;
+    border: inherit;
+    height: 300px;
+    cursor: pointer;
+}
+
+.BtnPanier{
+    background-color : white;
+    border: inherit;
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 80px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.BtnPanier img{
+    width: 40px;
+    height: 40px;
+}
+
+.fondBtnPanier{
+    background-color: black;
+    width: 500px;
+    height: 60px;
+    border-radius: 90px;
+    position: relative;
+    z-index: 0;
+    top: -50px;
+}
+
+.bonbonBoutique{
+    font-family: 'RodgerTestBlackItalic';
+    font-size: 3rem;
+}
+
+.textBtnPan{
+    font-size: 3rem;
+}
+
+.clicked {
+    transform: translateY(9px);
+}
+
+.petitBouton{
+    background-color : white;
+    border: inherit;
+    display: flex;
+    flex-direction: row;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 80px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.fondpetitBouton{
+    background-color: black;
+    width: 60px;
+    height: 60px;
+    border-radius: 90px;
+    position: relative;
+    z-index: 0;
+    top: -50px;
+}
+
+.posPlusMoins{
+    display: flex;
+    flex-direction: row;
+}

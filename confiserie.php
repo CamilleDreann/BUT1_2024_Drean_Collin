@@ -2,21 +2,17 @@
 
 $bgClass = "bg-confiserie";
 include_once("head.php");
-include_once("db.php");
+include_once("functions.php");
+
+
+$nom = get_nom_boutique_by_id($_GET["id"]);
 ?>
 
 <article class="confiserie">
     <div class="redirection"><a href="index.php">Accueil</a>><a href="index.php">Boutiques</a>><a href="index.php">Produits</a></div>
-    <?php
-    $boutique_id= $_GET['id'];
-    $test = requete("SELECT c.id, c.nom, c.type, c.prix, c.illustration, c.description
-    FROM confiseries c
-    JOIN stocks s ON c.id = s.confiserie_id
-    JOIN boutiques b ON s.boutique_id = b.id
-    WHERE b.id = $boutique_id ");
-    ?>
+
     <div class="BoutiqueConfiserie">
-        <h2 class="titreConfiserie"><span class="colorConfiserie">Les produits de </span> "Candyplaza"</h2>
+        <h2 class="titreConfiserie"><span class="colorConfiserie">Les produits de </span> <?php echo $nom;?></h2>
         <p>Plongez dans notre joyeuse sélection de bonbons ! Notre liste regorge de saveurs et de textures pour faire pétiller vos papilles. 
             Amateurs de douceurs fruitées ou de friandises acidulées, il y en a pour tous les goûts ! 
         </p>
@@ -25,16 +21,23 @@ include_once("db.php");
         <?php 
                 $colors = ['--main-color', '--rose-primary', '--pink', '--red', '--green'];
                 $colorCount = count($colors);
-            
-                foreach ($test as $key => $value){
+                $infoConfiserie = get_confiserie_info_by_boutique_id($_GET["id"]);
+                    foreach ($infoConfiserie as $key => $value){
                     $colorIndex = $key % $colorCount;
                     $currentColor = $colors[$colorIndex];
         ?>
             <div class="blocConfiserie" style="background-color: var(<?php echo $currentColor; ?>);">
-                <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']?>" alt="">
-                <h3 class="prixConfiserie"><?php echo $value['prix']?></h3>
-                <h3 class="nomBonbon"><?php echo $value['nom']?></h3>
-                <button class="panierConfiserie"><img src="assets/icon/ph_basket-bold.svg" alt="panier"></button>
+            <form action="produitDetaille.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                <input type="hidden" name="color" value="<?php echo $currentColor; ?>">
+                <input type="hidden" name="boutique" value="<?php echo $nom; ?>">
+                <button type="submit" class="btnConfiserie">
+                    <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
+                    <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>
+                    <h3 class="nomBonbon"><?php echo $value['nom']; ?></h3>
+                    <button class="panierConfiserie"><img src="assets/icon/ph_basket-bold.svg" alt="panier"></button>
+                </button>
+            </form>
             </div>
 
 

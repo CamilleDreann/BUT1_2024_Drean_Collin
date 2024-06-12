@@ -3,13 +3,13 @@ $bgClass = "bg-index";
 
 include_once("head.php");
 include_once("header.php");
-include_once("db.php")
+include_once("functions.php")
 ?>
 <article class="divBoutique">
     <div class="positionBoutique">
         <?php
-        $test = requete("SELECT * from boutiques ");
-        foreach ($test as $key => $value){
+        $boutiques = get_all_boutique();
+        foreach ($boutiques as $key => $value){
         ?>
             <div class="boutique">
                 <a href="confiserie.php?id=<?php echo $value['id']; ?>">
