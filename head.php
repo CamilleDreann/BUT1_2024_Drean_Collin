@@ -24,6 +24,11 @@ session_start();
             <?php else: ?>
                 <a href="connexion.php"><img class="user-barNav" src="./assets/icon/user.svg" alt="icon user"></a>
             <?php endif; ?>
+
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'gerant'): ?>
+                    <a href="mesBoutiques.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Mes Boutiques"></a>
+                <?php endif; ?>
+
             <a href="#"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
         </li>
     </ul>

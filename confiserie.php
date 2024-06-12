@@ -9,7 +9,7 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
 ?>
 
 <article class="confiserie">
-    <div class="redirection"><a href="index.php">Accueil</a>><a href="index.php">Boutiques</a>><a href="index.php">Produits</a></div>
+    <div class="redirection"><a href="index.php">Accueil</a>><a href="boutique.php">Boutiques</a>><a href="confiserie.php">Produits</a></div>
 
     <div class="BoutiqueConfiserie">
         <h2 class="titreConfiserie"><span class="colorConfiserie">Les produits de </span> <?php echo $nom[0]["nom"];;?></h2>

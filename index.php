@@ -6,6 +6,12 @@ include_once("header.php");
 include_once("functions.php")
 ?>
 <article class="divBoutique">
+
+    <div class="intro-boutique">
+    <h2 class="title-boutique">NOS BOUTIQUES</h2>
+    <p class="txt-boutique">Découvrez des boutiques où chaque bonbon est une invitation au plaisir gourmand !</p>
+    </div>
+
     <div class="positionBoutique">
         <?php
         $boutiques = get_all_boutique();
@@ -23,7 +29,7 @@ include_once("functions.php")
         ?>
     </div>
     <div class="posBouton">
-        <a class="boutonVoir" href="boutiques.php">Voir plus ></a>
+        <a class="boutonVoir" href="boutique.php">Voir plus ></a>
         <div class="remplissage"></div>
     </div>
 </article>
