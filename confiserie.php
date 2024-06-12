@@ -12,7 +12,7 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
     <div class="redirection"><a href="index.php">Accueil</a>><a href="index.php">Boutiques</a>><a href="index.php">Produits</a></div>
 
     <div class="BoutiqueConfiserie">
-        <h2 class="titreConfiserie"><span class="colorConfiserie">Les produits de </span> <?php echo $nom;?></h2>
+        <h2 class="titreConfiserie"><span class="colorConfiserie">Les produits de </span> <?php echo $nom[0]["nom"];;?></h2>
         <p>Plongez dans notre joyeuse sélection de bonbons ! Notre liste regorge de saveurs et de textures pour faire pétiller vos papilles. 
             Amateurs de douceurs fruitées ou de friandises acidulées, il y en a pour tous les goûts ! 
         </p>
@@ -30,7 +30,8 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
             <form action="produitDetaille.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
                 <input type="hidden" name="color" value="<?php echo $currentColor; ?>">
-                <input type="hidden" name="boutique" value="<?php echo $nom; ?>">
+                <input type="hidden" name="boutique" value="<?php echo $nom[0]["nom"]; ?>">
+                <input type="hidden" name="idboutique" value="<?php echo $nom[0]["id"]; ?>">
                 <button type="submit" class="btnConfiserie">
                     <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
                     <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>

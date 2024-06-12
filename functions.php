@@ -12,8 +12,7 @@ function get_confiserie_info_by_boutique_id($idBoutique){
 }
 function get_nom_boutique_by_id($idBoutique){
     $infoBoutique = requete("SELECT * from boutiques where id = $idBoutique");
-    $nomBoutique = $infoBoutique[0]["nom"];
-    return $nomBoutique;
+    return $infoBoutique;
 }
 
 function get_bonbon_info_by_id($id){
@@ -24,6 +23,13 @@ function get_bonbon_info_by_id($id){
 function get_all_boutique(){
     $boutiques = requete("SELECT * from boutiques ");
     return $boutiques;
+}
+
+function get_quantite_by_id($idBoutique,$idBonbon){
+    $quantite = requete("SELECT quantite
+    FROM stocks
+    WHERE boutique_id = $idBoutique AND confiserie_id = $idBonbon");
+    return $quantite;
 }
 
 

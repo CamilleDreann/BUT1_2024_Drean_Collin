@@ -763,9 +763,11 @@ h2{
     justify-content: center;
     align-items: center;
     border-radius: 30px;
+    margin: 5% 0;
 }
 .infoBonbon{
     width: 50%;
+    margin: 5% 0;
 }
 
 .titreBonbon{
@@ -816,7 +818,8 @@ h2{
     border-radius: 90px;
     position: relative;
     z-index: 0;
-    top: -50px;
+    top: -85px;
+    margin: 5% 0;
 }
 
 .bonbonBoutique{
@@ -834,18 +837,21 @@ h2{
 
 .petitBouton{
     background-color : white;
-    border: inherit;
+    border: var(--yellow-secondary) solid ;
     display: flex;
     flex-direction: row;
     width: 60px;
     height: 60px;
     justify-content: center;
     align-items: center;
-    gap: 30px;
     border-radius: 80px;
     position: relative;
     z-index: 1;
     cursor: pointer;
+    top: -10px;
+}
+.petitBouton img{
+    width: 40px;
 }
 
 .fondpetitBouton{
@@ -853,12 +859,25 @@ h2{
     width: 60px;
     height: 60px;
     border-radius: 90px;
-    position: relative;
+    position: absolute;
     z-index: 0;
-    top: -50px;
+    top: 0;
 }
 
 .posPlusMoins{
     display: flex;
     flex-direction: row;
+    background-color: white;
+    border: black solid;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 80px;
+    margin: 5% 0;
+    border-radius: 20px;
+    gap: 10px;
+}
+
+.blocbtn1 {
+    position: relative;
 }
