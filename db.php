@@ -21,6 +21,7 @@ try {
         DB_USERNAME,
         DB_PASSWORD
     );
+    $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $ex) {
     echo ($ex->getMessage());
     die;
