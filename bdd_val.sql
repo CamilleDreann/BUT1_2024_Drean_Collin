@@ -7,19 +7,19 @@ INSERT INTO utilisateurs(id, username, password, email, role, prenom, nom, ddn) 
 INSERT INTO `boutiques` (`id`, `nom`, `utilisateur_id`, `numero_rue`, `nom_adresse`, `code_postal`, `ville`, `pays`) VALUES
 (1, 'La mika-line', 1, '10', 'Rue des Bonbons', '75001', 'Paris', 'France'),
 (2, 'OK Bonbons', 2, '20', 'Avenue des Friandises', '69001', 'Lyon', 'France'),
-(3, 'Saccharo', 3, '30', 'Boulevard des Saveurs', '13001', 'Marseille', 'France');
+(3, 'Saccharo', 3, '30', 'Boulevard des Saveurs', '13001', 'Marseille', 'France'),
 (4, 'quoi feur', 3, '40', 'rue du ketchup', '56520', 'Guidel', 'France');
 
 
 INSERT INTO `confiseries` (`id`, `nom`, `type`, `prix`, `illustration`, `description`) VALUES
-(1, 'Haribo Tagada', 'Acide', 2.50, '', 'Bonbon Haribo Tagada, goût fraise'),
-(2, 'Haribo Carensac', 'Réglisse', 2.00, '', 'Bonbon Haribo à la réglisse en forme de petites boules colorées'),
-(3, 'Haribo Chamallows', 'Guimauve', 3.00, '', 'Guimauves Haribo moelleuses'),
-(4, 'Haribo Croco', 'Gélifié', 1.80, '', 'Bonbon gélifié Haribo en forme de crocodile'),
-(5, 'Haribo Dragibus', 'Fruité', 2.30, '', 'Bonbons Haribo Dragibus, assortiment de couleurs et de saveurs fruitées'),
-(6, 'Haribo Schtroumpfs', 'Gélifié', 1.90, '', 'Bonbons gélifiés Haribo en forme de Schtroumpfs'),
-(7, 'Haribo Rotella', 'Réglisse', 2.20, '', 'Bonbons Haribo à la réglisse en forme de rouleau'),
-(8, 'Haribo Maoam', 'Fruité', 2.70, '', 'Bonbons mâche Haribo Maoam, saveurs fruitées assorties'),
+(1, 'Haribo Tagada', 'Acide', 2.50, 'tagada.png', 'Bonbon Haribo Tagada, goût fraise'),
+(2, 'Haribo Carensac', 'Réglisse', 2.00, 'carensac.png', 'Bonbon Haribo à la réglisse en forme de petites boules colorées'),
+(3, 'Haribo Chamallows', 'Guimauve', 3.00, 'chamallows.png', 'Guimauves Haribo moelleuses'),
+(4, 'Haribo Croco', 'Gélifié', 1.80, 'croco.png', 'Bonbon gélifié Haribo en forme de crocodile'),
+(5, 'Haribo Dragibus', 'Fruité', 2.30, 'dragibus.png', 'Bonbons Haribo Dragibus, assortiment de couleurs et de saveurs fruitées'),
+(6, 'Haribo Schtroumpfs', 'Gélifié', 1.90, 'schtroumpfs.png', 'Bonbons gélifiés Haribo en forme de Schtroumpfs'),
+(7, 'Haribo Rotella', 'Réglisse', 2.20, 'rotella.png', 'Bonbons Haribo à la réglisse en forme de rouleau'),
+(8, 'Haribo Maoam', 'Fruité', 2.70, 'maoam.png', 'Bonbons mâche Haribo Maoam, saveurs fruitées assorties'),
 (9, 'Haribo Happy Cola', 'Gélifié', 1.95, '', 'Bonbons Haribo en forme de bouteille de cola'),
 (10, 'Haribo Miami Pik', 'Acide', 2.50, '', 'Bonbons Haribo acidulés, forme de bâtonnets'),
 (11, 'Haribo Goldbears', 'Gélifié', 2.40, '', 'Bonbons Haribo en forme de petits ours, saveurs fruitées'),

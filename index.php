@@ -12,7 +12,7 @@ include_once("db.php")
         foreach ($test as $key => $value){
         ?>
             <div class="boutique">
-                <a href="confiserie.php?id=<?php echo $value['id'] ?>">
+                <a href="confiserie.php?id=<?php echo $value['id']; ?>">
                     <img class="imgBoutique"src="assets/images/<?php echo $key; ?>" alt="<?php echo $value["nom"]; ?>">
                     <h3 class="nomBoutique"><?php echo $value["nom"];?></h3>
                 </a>
