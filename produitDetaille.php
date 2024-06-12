@@ -6,7 +6,7 @@ include_once("functions.php");
 
 <article class="produitDetaille">
 
-<div class="redirection"><a href="index.php">Accueil</a>><a href="index.php">Boutiques</a>><a href="index.php">Produits</a></div>
+<div class="redirection"> <a href="index.php"> Accueil</a>> <a href="boutique.php"> Boutiques</a>><a href="confiserie.php"> Produits</a></div>
 
 
 
