@@ -11,12 +11,13 @@
 
 <?php
 session_start();
+include_once("functions.php");
 ?>
 
 <article>
 <div class="barNav <?php echo isset($bgClass) ? $bgClass : ''; ?>">
     <ul class="ul-barNav">
-        <li class="menu"><a href="#"><img class="menu-barNav" src="./assets/icon/align-justify.svg" alt="menu"></a></li>
+        <li class="menu"><button class="menu" type="button"><img class="menu-barNav" src="./assets/icon/align-justify.svg" alt="menu"></button></li>
         <li class="logo"><a href="index.php"><img class="logo-barNav" src="./assets/icon/logoConfiz.png" alt="logo confiz"></a></li>
         <li class="user-panier">
         <?php if (isset($_SESSION['username'])): ?>
@@ -32,7 +33,48 @@ session_start();
             <a href="#"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
         </li>
     </ul>
+
+
+    <div class="menuBoutique">
+        <?php
+        $boutiques = get_all_boutique();
+        foreach ($boutiques as $key => $value){
+        ?>
+            <div class="boutique">
+                <a href="confiserie.php?id=<?php echo $value['id']; ?>">
+                    <img class="imgBoutique"src="assets/images/<?php echo $key; ?>" alt="<?php echo $value["nom"]; ?>">
+                    <h3 class="nomBoutique"><?php echo $value["nom"];?></h3>
+                </a>
+            </div>
+
+        <?php
+        }
+        ?>
+    </div>
 </div>
+
+
+
+
+<script>
+var boutonMenu = document.querySelector(".menu");
+var barnav = document.querySelector(".ul-barNav");
+var menuBoutique = document.querySelector(".menuBoutique");
+var body = document.querySelector("body");
+
+    boutonMenu.addEventListener("click", (event) => {
+        boutonMenu.classList.toggle('active');
+        if (boutonMenu.classList.contains('active')) {
+            menuBoutique.style.display = 'flex';
+            barnav.style.display = 'none';
+            body.style.overflow = 'hidden';
+        } else {
+            menuBoutique.style.display = 'none';
+            barnav.style.display = 'block';
+            body.style.overflow = '';
+        }
+    });
+</script>
 
 <?php
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {

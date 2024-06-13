@@ -5,7 +5,7 @@ include_once("functions.php");
 ?>
 
 <article class="produitDetaille">
-<div class="redirection"> <a href="index.php"> Accueil</a>> <a href="boutique.php"> Boutiques</a>><a href="confiserie.php"> Produits</a></div>
+<div class="redirection"> <a href="index.php"> Accueil</a>> <a href="boutique.php"> Boutiques</a>><a href="confiserie.php?>">Produits</a></div>
 
 <?php
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
@@ -21,6 +21,11 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
         <h3 class="detailBonbon"><?php echo $infoBonbon[0]["type"]?></h4>
         <h3 class="detailBonbon">Prix unitaire : <span><?php echo $infoBonbon[0]["prix"] ?>€</span></h3>
 
+
+
+
+
+
         <div class="posPlusMoins">
             <div class="blocbtn1">
                 <button class="petitBouton moins"><img src="assets/icon/moins.svg" alt="moins"></button>
@@ -32,9 +37,13 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
                 <div class="fondpetitBouton"></div>
             </div>
         </div>
-        <h3 class="detailBonbon">Quantite disponible :<h3 class="quantite"><?php $feur = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
+        <h3 class="quantite"><?php $feur = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
         echo $feur[0]["quantite"];
         ?></h3>
+
+
+
+
         <div class="blocbtn">
             <button class="BtnPanier">
                 <h3 class="textBtnPan">Ajouter au panier</h3>
@@ -44,6 +53,10 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
         </div>
     </div>
 </section>
+
+
+
+
     <div class="slider">
         <div class="slide-track">
             <h3 class="slide">Sans Arome artificiel</h3>
@@ -93,17 +106,16 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
                 }, 200);
             });
 
-            const quantite = document.querySelector('.quantite');
-            let max = parseInt(quantite.textContent);
 
-            function updateQuantity(amount, max) {
+
+            function updateQuantity(amount) {
 
                 const compteur = document.querySelector('.compteur');
                 let currentQuantity = parseInt(compteur.textContent);
 
+                const quantite = document.querySelector('.quantite');
+                let max = parseInt(quantite.textContent);
 
-
-                
                 currentQuantity += amount;
                 if (currentQuantity < 0) {
                     currentQuantity = 0;
@@ -115,35 +127,15 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
                 }
 
 
-                function updateStock(amount, max) {
-
-                    const compteur = document.querySelector('.compteur');
-                    let currentQuantity = parseInt(compteur.textContent);
-
-                    const quantite = document.querySelector('.quantite');
-                    let maxQuantity = parseInt(quantite.textContent);
-
-
-                    maxQuantity += amount;
-                    if (currentQuantity == max) {
-                        maxQuantity = 0;
-                    }
-                    else if (currentQuantity == 0) {
-                        maxQuantity = max;
-                    }
-                    quantite.textContent = maxQuantity;
-            }
 
 
                 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.plus').addEventListener('click', () => {
-        updateQuantity(1,max);
-        updateStock(-1);
+        updateQuantity(1);
     });
     document.querySelector('.moins').addEventListener('click', () => {
-        updateQuantity(-1,max);
-        updateStock(1);
+        updateQuantity(-1);
     });
 })
 </script>

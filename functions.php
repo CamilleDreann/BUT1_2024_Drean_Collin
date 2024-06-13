@@ -3,7 +3,7 @@ include_once("db.php");
 
 
 function get_confiserie_info_by_boutique_id($idBoutique){
-    $infoConfiserie = requete("SELECT c.id, c.nom, c.type, c.prix, c.illustration, c.description
+    $infoConfiserie = requete("SELECT c.id, c.nom, c.type, c.prix, c.illustration, c.description, s.quantite
     FROM confiseries c
     JOIN stocks s ON c.id = s.confiserie_id
     JOIN boutiques b ON s.boutique_id = b.id

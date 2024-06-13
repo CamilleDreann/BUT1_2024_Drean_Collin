@@ -185,18 +185,6 @@ font-family: 'RodgerTestBlackItalic';
     transform: translateY(-3px);
 }
 
-.menu {
-    justify-content: flex-start;
-}
-
-.logo {
-    justify-content: center;
-}
-
-.user-panier {
-    justify-content: flex-end;
-}
-
 .user-panier a {
     margin-left: 20px;
 }
@@ -204,6 +192,20 @@ font-family: 'RodgerTestBlackItalic';
 .menu-barNav, .user-barNav, .panier-barNav {
     width: 50px;
     height: 50px;
+}
+
+.menu{
+    background-color: inherit;
+    border: inherit;
+    cursor: pointer;
+}
+
+.menuBoutique{
+    margin: 0 5%;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .logo-barNav {
@@ -633,6 +635,10 @@ h2{
     border-radius: 30px;
     margin: 12% 0;
 }
+
+.grey{
+    filter: grayscale(100%);
+}
 .prixConfiserie{
     background-color: white;
     position: relative;
@@ -658,7 +664,9 @@ h2{
 
 .sachetbonbon{
     width: 300px;
+    height: 300px;
 }
+
 
 .confiserie{
     background-color: var(--yellow);
@@ -909,7 +917,7 @@ h2{
     justify-content: center;
     align-items: center;
     width: 250px;
-    height: 80px;
+    height: 100px;
     margin: 5% 0;
     border-radius: 20px;
     gap: 10px;
@@ -1116,9 +1124,6 @@ margin: 10px 0;
         transform: translateX(calc(-250px * 30));
     }
 }
-
-.produitDetaille h2{
-    font-size: 4rem;
-    text-align: center;
-    margin: 5% 0;
+.quantite{
+    display: none;
 }

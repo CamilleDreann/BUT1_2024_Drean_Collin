@@ -9,7 +9,7 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
 ?>
 
 <article class="confiserie">
-    <div class="redirection"><a href="index.php">Accueil</a>><a href="boutique.php">Boutiques</a>><a href="confiserie.php">Produits</a></div>
+    <div class="redirection"><a href="index.php">Accueil</a>><a href="boutique.php">Boutiques</a>><a href="confiserie.php?id=<?php echo $_GET["id"]?>">Produits</a></div>
 
     <div class="BoutiqueConfiserie">
         <h2 class="titreConfiserie"><span class="colorConfiserie">Les produits de </span> <?php echo $nom[0]["nom"];;?></h2>
@@ -25,7 +25,17 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
                     foreach ($infoConfiserie as $key => $value){
                     $colorIndex = $key % $colorCount;
                     $currentColor = $colors[$colorIndex];
-        ?>
+                    if ($value["quantite"]==0){?>
+                        <div class="blocConfiserie grey" style="background-color: var(<?php echo $currentColor; ?>);">
+                            <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
+                            <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>
+                            <h3 class="nomBonbon"><?php echo $value['nom']; ?></h3>
+                        </div>
+                        <?php
+                    }
+                    else {
+
+              ?>      
             <div class="blocConfiserie" style="background-color: var(<?php echo $currentColor; ?>);">
             <form action="produitDetaille.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
@@ -43,6 +53,7 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
 
 
         <?php 
+                    }
             }
         ?>
     </div>
