@@ -12,6 +12,7 @@ include_once("functions.php");
 
 <?php
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
+$quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
 ?>
 <section class="posBonbon">
     <div class="fondBonbon" style="background-color: var(<?php echo $_POST['color']; ?>);">
@@ -24,15 +25,19 @@ $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
         <h3 class="detailBonbon">Prix unitaire : <span><?php echo $infoBonbon[0]["prix"] ?>€</span></h3>
 
         <div class="posPlusMoins">
-            <div class="blocbtn">
-                <button class="petitBouton"><img src="assets/icon/moins.svg" alt="moins"></button>
+            <div class="blocbtn1">
+                <button class="petitBouton moins"><img src="assets/icon/moins.svg" alt="moins"></button>
                 <div class="fondpetitBouton"></div>
             </div>
-            <div class="blocbtn">
-                <button class="petitBouton"><img src="assets/icon/plus.svg" alt="plus"></button>
+            <h3 class="detailBonbon compteur">0</h3>
+            <div class="blocbtn1">
+                <button class="petitBouton plus"><img src="assets/icon/plus.svg" alt="plus"></button>
                 <div class="fondpetitBouton"></div>
             </div>
         </div>
+        <h3 class="detailBonbon quantite"><?php $feur = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
+        echo $feur[0]["quantite"];
+        ?></h3>
         <div class="blocbtn">
             <button class="BtnPanier">
                 <h3 class="textBtnPan">Ajouter au panier</h3>
@@ -48,36 +53,52 @@ $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
 <script>
 
     const BtnPanier = document.querySelector('.BtnPanier');
-    const petitBouton = document.querySelector('.petitBouton');
-
-
     const petitBoutons = document.querySelectorAll('.petitBouton');
+    const plus = document.querySelector('.plus');
+    const moins = document.querySelector('.moins');
 
-petitBoutons.forEach(button => {
-    button.addEventListener('click', function() {
-        this.classList.add('clicked');
-
-        setTimeout(() => {
-            this.classList.remove('clicked');
-        }, 200);
-    });
-});
-
-
-
-    BtnPanier.addEventListener('click', function() {
-                // Add the 'clicked' class
+        petitBoutons.forEach(button => {
+            button.addEventListener('click', function() {
                 this.classList.add('clicked');
 
-                // Remove the 'clicked' class after the animation duration
                 setTimeout(() => {
                     this.classList.remove('clicked');
-                }, 200); // Match the duration with the CSS transition duration
+                }, 200);
+            });
+        });
+    BtnPanier.addEventListener('click', function() {
+                this.classList.add('clicked');
+
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 200);
             });
 
 
+            function updateQuantity(amount) {
+
+                const compteur = document.querySelector('.compteur');
+                let currentQuantity = parseInt(compteur.textContent);
+
+                const quantite = document.querySelector('.quantite');
+                let maxQuantity = parseInt(quantite.textContent);
+
+                
+                currentQuantity += amount;
+                if (currentQuantity < 0) {
+                    currentQuantity = 0;
+                }
+                else if (currentQuantity > maxQuantity) {
+                    currentQuantity = maxQuantity;
+                }
+                compteur.textContent = currentQuantity;
+                }
 
 
+                document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('.plus').addEventListener('click', () => updateQuantity(1));
+                document.querySelector('.moins').addEventListener('click', () => updateQuantity(-1));
+            });
 </script>
 
 
