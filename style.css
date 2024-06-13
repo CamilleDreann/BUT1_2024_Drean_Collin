@@ -1060,3 +1060,65 @@ margin: 10px 0;
 }
 
 /* fin gerer stock */
+
+.slider {
+    background: var(--red);
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    color: white;
+}
+
+
+
+.slider::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slider .slide-track {
+    animation: scroll 80s linear infinite;
+    display: flex;
+    width: calc(250px * 30);
+    gap: 40px;
+
+}
+
+.slider .slide-track:hover {
+    animation-play-state: paused;
+}
+
+.slider .slide {
+    height: 100px;
+    width: fit-content;
+    font-family: 'RodgerTestBlackItalic';
+    font-size: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 30));
+    }
+}
+
+.produitDetaille h2{
+    font-size: 4rem;
+    text-align: center;
+    margin: 5% 0;
+}

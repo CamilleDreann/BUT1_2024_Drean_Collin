@@ -5,10 +5,7 @@ include_once("functions.php");
 ?>
 
 <article class="produitDetaille">
-
 <div class="redirection"> <a href="index.php"> Accueil</a>> <a href="boutique.php"> Boutiques</a>><a href="confiserie.php"> Produits</a></div>
-
-
 
 <?php
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
@@ -35,7 +32,7 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
                 <div class="fondpetitBouton"></div>
             </div>
         </div>
-        <h3 class="detailBonbon quantite"><?php $feur = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
+        <h3 class="detailBonbon">Quantite disponible :<h3 class="quantite"><?php $feur = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
         echo $feur[0]["quantite"];
         ?></h3>
         <div class="blocbtn">
@@ -47,6 +44,28 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
         </div>
     </div>
 </section>
+    <div class="slider">
+        <div class="slide-track">
+            <h3 class="slide">Sans Arome artificiel</h3>
+            <h3 class="slide">Tros Bon</h3>
+            <h3 class="slide">Sans Edulcorant</h3>
+            <h3 class="slide">Origine France</h3>
+            <h3 class="slide">Sans Arome artificiel</h3>
+            <h3 class="slide">Tros Bon</h3>
+            <h3 class="slide">Sans Edulcorant</h3>
+            <h3 class="slide">Origine France</h3>
+            <h3 class="slide">Sans Arome artificiel</h3>
+            <h3 class="slide">Tros Bon</h3>
+            <h3 class="slide">Sans Edulcorant</h3>
+            <h3 class="slide">Origine France</h3>
+            <h3 class="slide">Sans Arome artificiel</h3>
+            <h3 class="slide">Tros Bon</h3>
+            <h3 class="slide">Sans Edulcorant</h3>
+            <h3 class="slide">Origine France</h3>
+        </div>
+    </div>
+
+    <h2>Autre Produits de la boutique de Candyplaza</h2>
 
 </article>
 
@@ -74,31 +93,59 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
                 }, 200);
             });
 
+            const quantite = document.querySelector('.quantite');
+            let max = parseInt(quantite.textContent);
 
-            function updateQuantity(amount) {
+            function updateQuantity(amount, max) {
 
                 const compteur = document.querySelector('.compteur');
                 let currentQuantity = parseInt(compteur.textContent);
 
-                const quantite = document.querySelector('.quantite');
-                let maxQuantity = parseInt(quantite.textContent);
+
 
                 
                 currentQuantity += amount;
                 if (currentQuantity < 0) {
                     currentQuantity = 0;
                 }
-                else if (currentQuantity > maxQuantity) {
-                    currentQuantity = maxQuantity;
+                else if (currentQuantity > max) {
+                    currentQuantity = max;
                 }
                 compteur.textContent = currentQuantity;
                 }
 
 
-                document.addEventListener('DOMContentLoaded', () => {
-                document.querySelector('.plus').addEventListener('click', () => updateQuantity(1));
-                document.querySelector('.moins').addEventListener('click', () => updateQuantity(-1));
-            });
+                function updateStock(amount, max) {
+
+                    const compteur = document.querySelector('.compteur');
+                    let currentQuantity = parseInt(compteur.textContent);
+
+                    const quantite = document.querySelector('.quantite');
+                    let maxQuantity = parseInt(quantite.textContent);
+
+
+                    maxQuantity += amount;
+                    if (currentQuantity == max) {
+                        maxQuantity = 0;
+                    }
+                    else if (currentQuantity == 0) {
+                        maxQuantity = max;
+                    }
+                    quantite.textContent = maxQuantity;
+            }
+
+
+                
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.plus').addEventListener('click', () => {
+        updateQuantity(1,max);
+        updateStock(-1);
+    });
+    document.querySelector('.moins').addEventListener('click', () => {
+        updateQuantity(-1,max);
+        updateStock(1);
+    });
+})
 </script>
 
 

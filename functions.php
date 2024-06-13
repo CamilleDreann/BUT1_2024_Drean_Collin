@@ -8,6 +8,7 @@ function get_confiserie_info_by_boutique_id($idBoutique){
     JOIN stocks s ON c.id = s.confiserie_id
     JOIN boutiques b ON s.boutique_id = b.id
     WHERE b.id = $idBoutique ");
+    
     return $infoConfiserie;
 }
 function get_nom_boutique_by_id($idBoutique){
