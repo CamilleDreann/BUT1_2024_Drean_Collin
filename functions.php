@@ -32,6 +32,36 @@ function get_boutiques_by_user_id($user_id) {
 }
 
 
+/* test */
+
+function get_all_confiseries() {
+    $confiseries = requete("SELECT * FROM confiseries");
+    return $confiseries;
+}
+
+function add_stock($boutique_id, $confiserie_id, $quantite) {
+    global $PDO;
+    $stmt = $PDO->prepare("INSERT INTO stocks (quantite, date_de_modification, boutique_id, confiserie_id) VALUES (:quantite, NOW(), :boutique_id, :confiserie_id)
+                           ON DUPLICATE KEY UPDATE quantite = quantite + :quantite");
+    $stmt->execute([':quantite' => $quantite, ':boutique_id' => $boutique_id, ':confiserie_id' => $confiserie_id]);
+}
+
+function delete_stock($boutique_id, $confiserie_id) {
+    global $PDO;
+    $stmt = $PDO->prepare("DELETE FROM stocks WHERE boutique_id = :boutique_id AND confiserie_id = :confiserie_id");
+    $stmt->execute([':boutique_id' => $boutique_id, ':confiserie_id' => $confiserie_id]);
+}
+
+function get_confiseries_by_boutique_id($boutique_id) {
+    $confiseries = requete("SELECT c.id, c.nom, s.quantite FROM confiseries c
+                            JOIN stocks s ON c.id = s.confiserie_id
+                            WHERE s.boutique_id = :boutique_id", [':boutique_id' => $boutique_id]);
+    return $confiseries;
+}
+
+
+/* ------ */
+
 
 
 ?>

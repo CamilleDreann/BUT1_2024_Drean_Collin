@@ -26,7 +26,7 @@ session_start();
             <?php endif; ?>
 
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'gerant'): ?>
-                    <a href="mesBoutiques.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Mes Boutiques"></a>
+                <a href="gererStocks.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Gérer mes boutiques"></a>                    
                 <?php endif; ?>
 
             <a href="#"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
