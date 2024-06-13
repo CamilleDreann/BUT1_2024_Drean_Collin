@@ -47,8 +47,9 @@ function get_all_confiseries() {
 
 function add_stock($boutique_id, $confiserie_id, $quantite) {
     global $PDO;
-    $stmt = $PDO->prepare("INSERT INTO stocks (quantite, date_de_modification, boutique_id, confiserie_id) VALUES (:quantite, NOW(), :boutique_id, :confiserie_id)
-                           ON DUPLICATE KEY UPDATE quantite = quantite + :quantite");
+    $stmt = $PDO->prepare("INSERT INTO stocks (quantite, date_de_modification, boutique_id, confiserie_id) 
+                           VALUES (:quantite, NOW(), :boutique_id, :confiserie_id)
+                           ON DUPLICATE KEY UPDATE quantite = quantite + VALUES(quantite)");
     $stmt->execute([':quantite' => $quantite, ':boutique_id' => $boutique_id, ':confiserie_id' => $confiserie_id]);
 }
 

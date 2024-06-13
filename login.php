@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
         $_SESSION['username'] = $user_data['username'];
         $_SESSION['role'] = $user_data['role'];
-        $_SESSION['user_id'] = $user_data['id']; // Définir user_id dans la session
+        $_SESSION['user_id'] = $user_data['id']; 
 
         header("Location: index.php");
         exit;

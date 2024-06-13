@@ -949,11 +949,114 @@ padding: 50px 0;
 
 /* Gerer sotck  */
 
+.ajout-bonbon {
+    color: var(--green);
+    font-size: 2rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
 .article-gererStock{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--red);
+    padding: 30px 0;
+}
+
+.div-liste-stock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-article-gererStock{
+    font-size: 3.5rem;
+    color: white;
+}
+
+
+
+
+.div-liste-stock > ul{
+margin: 10px 0;
+}
+
+.div-liste-stock > ul > li{
+    font-size: 30px;
+    margin: 10px 0;
+    }
+
+
+.div-ajouterBonbon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-ajouterBonbon > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-boutiqueAdd{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.label-boutique{
+    font-family: 'JosefinSans-Regular';
+    font-size: 30px;
+}
+
+.select-boutique{
+    border-radius: 5%;
+}
+
+.div-supprimerBonbon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-supprimerBonbon > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.div-confiserieAdd{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+
+.div-quantiteAdd{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.div-supprimerBoutique{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.div-supprimerConfiserie{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 20px 0;
 }
 
 /* fin gerer stock */

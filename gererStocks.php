@@ -22,8 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($action == 'add') {
         $quantite = $_POST['quantite'];
         add_stock($boutique_id, $confiserie_id, $quantite); // fonction à créer pour ajouter du stock
+        $_SESSION["ajout-bonbon"] = "Bonbon ajouté avec succès.";
+
     } elseif ($action == 'delete') {
         delete_stock($boutique_id, $confiserie_id); // fonction à créer pour supprimer du stock
+        $_SESSION["ajout-bonbon"] = "Bonbon supprimé avec succès.";
     }
 
     header("Location: gererStocks.php");
@@ -33,9 +36,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <article class="article-gererStock">
-    <h1 class="title-gererStock">Gérer les Stocks</h1>
+
+
+
+<?php
+if (isset($_SESSION["ajout-bonbon"])) {
+    echo '<p class="ajout-bonbon">' . $_SESSION["ajout-bonbon"] . '</p>';
+    unset($_SESSION["ajout-bonbon"]);
+}
+?>
+
+
+    <h2 class="title-gererStock">Gerer les Stocks</h2>
+
+    <div class="div-liste-stock">
     <?php foreach ($boutiques as $boutique): ?>
-        <h2>Confiseries dans <?= htmlspecialchars($boutique['nom']) ?></h2>
+        <h3 class="title-article-gererStock">Confiseries dans <?= htmlspecialchars($boutique['nom']) ?></h3>
         <ul>
             <?php
             $confiseries_boutique = get_confiseries_by_boutique_id($boutique['id']);
@@ -44,44 +60,76 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endforeach; ?>
         </ul>
     <?php endforeach; ?>
+    </div>
 
-    <h2>Ajouter des Confiseries</h2>
+    <div class="div-ajouterBonbon">
+    <h3 class="title-article-gererStock" >Ajouter des Confiseries</h3>
     <form method="post">
         <input type="hidden" name="action" value="add">
-        <label for="boutique_id">Boutique :</label>
-        <select name="boutique_id" required>
-            <?php foreach ($boutiques as $boutique) { ?>
-                <option value="<?= $boutique['id'] ?>"><?= $boutique['nom'] ?></option>
-            <?php } ?>
-        </select>
-        <label for="confiserie_id">Confiserie :</label>
-        <select name="confiserie_id" required>
-            <?php foreach ($confiseries as $confiserie) { ?>
-                <option value="<?= $confiserie['id'] ?>"><?= $confiserie['nom'] ?></option>
-            <?php } ?>
-        </select>
-        <label for="quantite">Quantité :</label>
-        <input type="number" name="quantite" required>
-        <button type="submit">Ajouter</button>
-    </form>
 
-    <h2>Supprimer des Confiseries</h2>
-    <form method="post">
-        <input type="hidden" name="action" value="delete">
-        <label for="boutique_id">Boutique :</label>
-        <select name="boutique_id" required>
+        <div class="div-boutiqueAdd">
+        <label class="label-boutique" for="boutique_id">Boutique :</label>
+        <select class="select-boutique" name="boutique_id" required>
             <?php foreach ($boutiques as $boutique) { ?>
                 <option value="<?= $boutique['id'] ?>"><?= $boutique['nom'] ?></option>
             <?php } ?>
         </select>
-        <label for="confiserie_id">Confiserie :</label>
-        <select name="confiserie_id" required>
+        </div>
+
+        <div class="div-confiserieAdd">
+        <label class="label-boutique" for="confiserie_id">Confiserie :</label>
+        <select class="select-boutique" name="confiserie_id" required>
             <?php foreach ($confiseries as $confiserie) { ?>
                 <option value="<?= $confiserie['id'] ?>"><?= $confiserie['nom'] ?></option>
             <?php } ?>
         </select>
-        <button type="submit">Supprimer</button>
+        </div>
+
+        <div class="div-quantiteAdd">
+        <label class="label-boutique" for="quantite">Quantité :</label>
+        <input class="select-boutique" type="number" name="quantite" required>
+        </div>
+
+       
+        <div class="posBouton">
+        <button class="boutonVoir" type="submit">Ajouter</button>
+        <div class="remplissage"></div>
+
+       
+
+    </div>
     </form>
+    </div>
+
+    <div class="div-supprimerBonbon">
+    <h3 class="title-article-gererStock" >Supprimer des Confiseries</h3>
+    <form method="post">
+
+        <div class="div-supprimerBoutique">
+        <input type="hidden" name="action" value="delete">
+        <label class="label-boutique" for="boutique_id">Boutique :</label>
+        <select class="select-boutique" name="boutique_id" required>
+            <?php foreach ($boutiques as $boutique) { ?>
+                <option value="<?= $boutique['id'] ?>"><?= $boutique['nom'] ?></option>
+            <?php } ?>
+        </select>
+        </div>
+
+        <div class="div-supprimerConfiserie">
+        <label class="label-boutique" for="confiserie_id">Confiserie :</label>
+        <select class="select-boutique" name="confiserie_id" required>
+            <?php foreach ($confiseries as $confiserie) { ?>
+                <option value="<?= $confiserie['id'] ?>"><?= $confiserie['nom'] ?></option>
+            <?php } ?>
+        </select>
+        </div>
+
+        <div class="posBouton">
+        <button class="boutonVoir" type="submit">Supprimer</button>
+        <div class="remplissage"></div>
+
+    </form>
+    </div>
 </article>
 
 <?php

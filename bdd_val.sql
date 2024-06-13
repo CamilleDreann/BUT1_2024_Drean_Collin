@@ -44,3 +44,4 @@ INSERT INTO stocks(quantite, date_de_modification, boutique_id, confiserie_id) V
 (17, NOW(), 2, 6),
 (120, NOW(), 2, 7),
 (8, NOW(), 2, 10);
+    
