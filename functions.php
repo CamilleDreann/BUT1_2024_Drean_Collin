@@ -1,7 +1,6 @@
 <?php
 include_once("db.php");
 
-
 function get_confiserie_info_by_boutique_id($idBoutique){
     $infoConfiserie = requete("SELECT c.id, c.nom, c.type, c.prix, c.illustration, c.description, s.quantite
     FROM confiseries c
@@ -50,10 +49,9 @@ function add_stock($boutique_id, $confiserie_id, $quantite) {
     global $PDO;
     $stmt = $PDO->prepare("INSERT INTO stocks (quantite, date_de_modification, boutique_id, confiserie_id) 
                            VALUES (:quantite, NOW(), :boutique_id, :confiserie_id)
-                           ON DUPLICATE KEY UPDATE quantite = quantite + VALUES(quantite)");
+                           ON DUPLICATE KEY UPDATE quantite = quantite + VALUES(quantite), date_de_modification = NOW()");
     $stmt->execute([':quantite' => $quantite, ':boutique_id' => $boutique_id, ':confiserie_id' => $confiserie_id]);
 }
-
 function delete_stock($boutique_id, $confiserie_id) {
     global $PDO;
     $stmt = $PDO->prepare("DELETE FROM stocks WHERE boutique_id = :boutique_id AND confiserie_id = :confiserie_id");
