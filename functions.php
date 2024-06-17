@@ -25,6 +25,40 @@ function get_all_boutique(){
     return $boutiques;
 }
 
+
+/* gérer boutique */
+
+function add_boutique($nom, $utilisateur_id, $numero_rue, $nom_adresse, $code_postal, $ville, $pays) {
+    global $PDO;
+    $stmt = $PDO->prepare("INSERT INTO boutiques (nom, utilisateur_id, numero_rue, nom_adresse, code_postal, ville, pays) 
+                           VALUES (:nom, :utilisateur_id, :numero_rue, :nom_adresse, :code_postal, :ville, :pays)");
+    $stmt->execute([
+        ':nom' => $nom,
+        ':utilisateur_id' => $utilisateur_id,
+        ':numero_rue' => $numero_rue,
+        ':nom_adresse' => $nom_adresse,
+        ':code_postal' => $code_postal,
+        ':ville' => $ville,
+        ':pays' => $pays
+    ]);
+}
+
+function delete_boutique($boutique_id) {
+    global $PDO;
+    $stmt = $PDO->prepare("DELETE FROM boutiques WHERE id = :boutique_id");
+    $stmt->execute([':boutique_id' => $boutique_id]);
+}
+
+function get_all_users() {
+    $users = requete("SELECT id, username, role FROM utilisateurs");
+    return $users;
+}
+
+
+
+
+/* fin de gérer boutique  */
+
 function get_quantite_by_id($idBoutique,$idBonbon){
     $quantite = requete("SELECT quantite
     FROM stocks

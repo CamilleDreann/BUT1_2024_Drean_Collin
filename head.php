@@ -26,7 +26,7 @@ include_once("functions.php");
                 <a href="connexion.php"><img class="user-barNav" src="./assets/icon/user.svg" alt="icon user"></a>
             <?php endif; ?>
 
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'gerant'): ?>
+            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'gerant')): ?>
                 <a href="gererStocks.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Gérer mes boutiques"></a>                    
                 <?php endif; ?>
 
