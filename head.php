@@ -61,17 +61,22 @@ var boutonMenu = document.querySelector(".menu");
 var barnav = document.querySelector(".ul-barNav");
 var menuBoutique = document.querySelector(".menuBoutique");
 var body = document.querySelector("body");
+var menubarNav = document.querySelector(".menu-barNav");
+
+    
+
 
     boutonMenu.addEventListener("click", (event) => {
         boutonMenu.classList.toggle('active');
         if (boutonMenu.classList.contains('active')) {
             menuBoutique.style.display = 'flex';
-            barnav.style.display = 'none';
             body.style.overflow = 'hidden';
+            menubarNav.src = 'assets/icon/croix.svg';
         } else {
             menuBoutique.style.display = 'none';
-            barnav.style.display = 'block';
+            barnav.style.display = 'flex';
             body.style.overflow = '';
+            menubarNav.src = 'assets/icon/align-justify.svg';
         }
     });
 </script>
