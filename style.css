@@ -1381,3 +1381,8 @@ margin: 10px 0;
     font-size: 5rem;
     margin: 5% 10%;
 }
+.autreBonbon button {
+    border: inherit;
+    background-color: inherit;
+    cursor: pointer;
+}

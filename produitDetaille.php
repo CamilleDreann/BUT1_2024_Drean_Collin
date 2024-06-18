@@ -13,6 +13,7 @@ include_once("functions.php");
 <?php
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
 $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
+$nom = get_nom_boutique_by_id($_POST['idboutique']);
 ?>
 <section class="posBonbon">
     <div class="fondBonbon" style="background-color: var(<?php echo $_POST['color']; ?>);">
@@ -98,9 +99,17 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
                                 $colorIndex = $totalItems % $colorCount;
                                 $currentColor = $colors[$colorIndex];
                                 ?>
-                                <div class="bonbon" style="background-color: var(<?php echo $currentColor; ?>);">
-                                    <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
-                                </div>
+                                <form action="produitDetaille.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                    <input type="hidden" name="color" value="<?php echo $currentColor; ?>">
+                                    <input type="hidden" name="boutique" value="<?php echo $nom[0]["nom"]; ?>">
+                                    <input type="hidden" name="idboutique" value="<?php echo $nom[0]["id"]; ?>">
+                                    <button type="submit" class="btnConfiserie">
+                                        <div class="bonbon" style="background-color: var(<?php echo $currentColor; ?>);">
+                                            <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
+                                        </div>
+                                    </button>
+                                </form>
                                 <?php
                                 $totalItems++;
                             }
