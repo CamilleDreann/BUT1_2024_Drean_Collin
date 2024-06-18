@@ -37,6 +37,10 @@ include_once("functions.php")
         <?php
         }
         ?>
+        <img class="sticker-fleur" src="./assets/images/Coeur_sticker.png" alt="Sticker de fleur">
+        <img class="sticker-coeur" src="./assets/images/Fleur_sticker.png" alt="Sticker de coeur">
+        <img class="sticker-ptitCoeur" src="./assets/images/Fleur2Sticker.png" alt="Sticker de cofeur">
+
     </div>
     <div class="posBouton">
         <a class="boutonVoir" href="boutique.php">Voir plus ></a>

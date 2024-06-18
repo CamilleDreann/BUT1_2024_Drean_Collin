@@ -1,6 +1,6 @@
 <article>
 
-<div class="content-apropos">
+<div class="content-apropos" id="apropos">
 
 <div class="txt-apropos">
     <h2><span class="span-vert">"</span>A PROPOS DE NOUS<span class="span-vert">"</span></h2>

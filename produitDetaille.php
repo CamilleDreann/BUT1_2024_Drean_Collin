@@ -8,7 +8,7 @@ include_once("functions.php");
     <div class="finVague"></div>
 </div>
 <article class="produitDetaille">
-<div class="redirection"> <a href="index.php"> Accueil</a>> <a href="boutique.php"> Boutiques</a>><a href="confiserie.php?>">Produits</a></div>
+<div class="redirection"><a href="index.php">Accueil</a> > <a href="boutique.php">Boutiques</a> > <a href="confiserie.php">Produits</a></div>
 
 <?php
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);

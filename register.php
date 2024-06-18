@@ -10,30 +10,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = $_POST['nom'];
     $ddn = $_POST['ddn'];
 
-    $stmt = $PDO->prepare("SELECT * FROM utilisateurs WHERE username = :username OR email = :email");
-    $stmt->execute([':username' => $username, ':email' => $email]);
+    $stmt = $PDO->prepare("INSERT INTO utilisateurs (username, password, email, role, prenom, nom, ddn) 
+                           VALUES (:username, :password, :email, 'client', :prenom, :nom, :ddn)");
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':prenom', $prenom);
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':ddn', $ddn);
 
-    if ($stmt->rowCount() > 0) {
-        $_SESSION['error'] = "Nom d'utilisateur ou email déjà utilisé.";
-        header("Location: inscription.php");
+    if ($stmt->execute()) {
+        $_SESSION['message'] = "Inscription réussie. Vous pouvez maintenant vous connecter.";
+        header("Location: connexion.php");
+        exit;
+    } else {
+        $_SESSION['error'] = "Erreur lors de l'inscription. Veuillez réessayer.";
+        header("Location: connexion.php");
         exit;
     }
-
-    $stmt = $PDO->prepare("INSERT INTO utilisateurs (username, password, email, role, prenom, nom, ddn) VALUES (:username, :password, :email, 'client', :prenom, :nom, :ddn)");
-    $stmt->execute([
-        ':username' => $username,
-        ':password' => $password,
-        ':email' => $email,
-        ':prenom' => $prenom,
-        ':nom' => $nom,
-        ':ddn' => $ddn
-    ]);
-
-    $_SESSION['username'] = $username;
-    $_SESSION['role'] = 'client';
-    $_SESSION['user_id'] = $PDO->lastInsertId(); 
-
-    header("Location: index.php");
-    exit;
 }
 ?>

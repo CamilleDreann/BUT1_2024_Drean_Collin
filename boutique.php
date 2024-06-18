@@ -10,7 +10,7 @@ include_once("functions.php");
 </div>
 
 <article class="catalogue-boutique">
-    <div class="redirection"><a href="index.php">Accueil</a>><a href="boutique.php">Boutiques</a>></div>
+    <div class="redirection"><a href="index.php">Accueil</a> > <a href="boutique.php">Boutiques</a> > </div>
 
     <div class="txt-catalogue">
         <h2 class="titreCatalogue"><span class="colorConfiserie">Nos boutiques</h2>

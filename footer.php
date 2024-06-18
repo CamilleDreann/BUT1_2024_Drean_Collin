@@ -14,7 +14,7 @@
             <hr>
             <ul class="navFooter">
                 <li class="espacementfooter"><a href="index.php">Accueil</a></li>
-                <li class="espacementfooter">A propos</li>
+                <li class="espacementfooter"><a href="#apropos">A propos</a></li>
                 <li class="espacementfooter"><a href="boutique.php">Catalogue</a></li>
             </ul>
             <div class="droitFooter">
