@@ -13,9 +13,9 @@
             </div>
             <hr>
             <ul class="navFooter">
-                <li class="espacementfooter">Accueil</li>
+                <li class="espacementfooter"><a href="index.php">Accueil</a></li>
                 <li class="espacementfooter">A propos</li>
-                <li class="espacementfooter">Catalogue</li>
+                <li class="espacementfooter"><a href="boutique.php">Catalogue</a></li>
             </ul>
             <div class="droitFooter">
                 <p>© Ethan COLLIN & Camille DREAN. Tous droits réservés !</p>

@@ -294,14 +294,15 @@ header{
     }
 }
 body{
-    animation: blockBody 5s forwards;
+    animation: blockBody 6s forwards;
 }
+
 @keyframes blockBody {
     0% {
         overflow: hidden;
     }
     100% {
-        overflow: auto;
+        overflow: visible;
     }
 }
 
@@ -753,8 +754,7 @@ h2{
 
 .panierConfiserie{
     position: relative;
-
-    top: -80px;
+    top: -140px;
     left: -10px;
     border-radius: 40px;
     width: 80px;
@@ -1140,7 +1140,13 @@ margin: 10px 0;
     color: white;
 }
 
-
+.slider::before, .slider::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+}
 
 .slider::after {
     right: 0;
@@ -1188,4 +1194,75 @@ margin: 10px 0;
 }
 .quantite{
     display: none;
+}
+
+.slideBonbon {
+    background: var(--yellow);
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.slideBonbon::before, .slideBonbon::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+}
+
+.slideBonbon::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.slideBonbon::before {
+    left: 0;
+    top: 0;
+}
+
+.slideBonbon .divBonbon {
+    animation: scrollBonbon 80s linear infinite;
+    display: flex;
+    width: calc(400px * 17); 
+}
+
+.slideBonbon .divBonbon:hover {
+    animation-play-state: paused;
+}
+
+.bonbon img .divBonbon:hover {
+    transform: scale(1.2);
+}
+
+.slideBonbon .bonbon {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+@keyframes scrollBonbon {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-400px * 17));
+    }
+}
+
+.autreBonbon{
+    background-color: var(--yellow);
+    height: 900px;
+}
+.autreBonbon h2{
+    text-align: center;
+    font-size: 5rem;
+    margin: 5% 10%;
 }

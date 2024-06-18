@@ -21,10 +21,9 @@
             .warp {
                 display: block;
                 position: relative;
-                width: 100%;
                 height: 100px;
                 font: normal 5rem Copyduck;
-                left : 350px;
+                left : -600px;
                 top : -150px;
                 color : white;
             }

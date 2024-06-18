@@ -80,11 +80,40 @@ $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
             <h3 class="slide">Origine France</h3>
         </div>
     </div>
+    <div class="autreBonbon">
+            <h2>Autre Produits de la boutique de Candyplaza</h2>
 
-    <h2>Autre Produits de la boutique de Candyplaza</h2>
+            <div class="slideBonbon">
+                <div class="divBonbon">
+                    <?php 
+                        $colors = ['--main-color', '--rose-primary', '--pink', '--red', '--green'];
+                        $colorCount = count($colors);
+                        $infoConfiserie = get_confiserie_info_by_boutique_id($_POST['idboutique']);
+                        $totalItems = 0;
 
+                        while ($totalItems < 17) {
+                            foreach ($infoConfiserie as $key => $value){
+                                if ($totalItems >= 17) break; // Sortir de la boucle si 17 éléments ont été ajoutés
+                                
+                                $colorIndex = $totalItems % $colorCount;
+                                $currentColor = $colors[$colorIndex];
+                                ?>
+                                <div class="bonbon" style="background-color: var(<?php echo $currentColor; ?>);">
+                                    <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
+                                </div>
+                                <?php
+                                $totalItems++;
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+    </div>
 </article>
+<?php 
+include_once("footer.php");
 
+?>
 <script>
 
     const BtnPanier = document.querySelector('.BtnPanier');

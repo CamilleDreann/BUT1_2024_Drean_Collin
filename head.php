@@ -70,6 +70,7 @@ var menubarNav = document.querySelector(".menu-barNav");
         boutonMenu.classList.toggle('active');
         if (boutonMenu.classList.contains('active')) {
             menuBoutique.style.display = 'flex';
+            body.style.animation ='none'
             body.style.overflow = 'hidden';
             menubarNav.src = 'assets/icon/croix.svg';
         } else {
