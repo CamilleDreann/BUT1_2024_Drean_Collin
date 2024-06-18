@@ -79,7 +79,7 @@ if (isset($_SESSION["ajout-boutique"])) {
             <li><?= htmlspecialchars($confiserie['nom']) ?> - Quantité: <?= htmlspecialchars($confiserie['quantite']) ?></li>
         <?php endforeach; ?>
     </ul>
-    <a href="confiserie.php?id=<?= $boutique['id'] ?>" class="boutonVoir">Voir la boutique</a> <!-- Bouton pour voir la boutique -->
+    <a href="confiserie.php?id=<?= $boutique['id'] ?>" class="boutonVoir">Voir la boutique</a> 
 <?php endforeach; ?>
 </div>
 

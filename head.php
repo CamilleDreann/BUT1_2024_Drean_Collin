@@ -20,6 +20,7 @@ include_once("functions.php");
         <li class="menu"><button class="menu" type="button"><img class="menu-barNav" src="./assets/icon/align-justify.svg" alt="menu"></button></li>
         <li class="logo"><a href="index.php"><img class="logo-barNav" src="./assets/icon/logoConfiz.png" alt="logo confiz"></a></li>
         <li class="user-panier">
+
         <?php if (isset($_SESSION['username'])): ?>
                 <a href="logout.php"><img class="user-barNav" src="./assets/icon/log-out.svg" alt="Déconnexion"></a>
             <?php else: ?>
@@ -27,7 +28,7 @@ include_once("functions.php");
             <?php endif; ?>
 
             <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'gerant')): ?>
-                <a href="gererStocks.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Gérer mes boutiques"></a>                    
+                <a href="gererStocks.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Gérer Stock ou boutique selon le rôle"></a>                    
                 <?php endif; ?>
 
             <a href="#"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
