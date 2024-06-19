@@ -85,4 +85,9 @@ include_once("head.php");
         </tbody>
     </table>
 </article>
+
 <?php include_once("footer.php"); ?>
+
+<?php
+ob_end_flush();
+?>

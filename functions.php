@@ -2,6 +2,7 @@
 include_once("db.php");
 
 function get_confiserie_info_by_boutique_id($idBoutique){
+    
     $infoConfiserie = requete("SELECT c.id, c.nom, c.type, c.prix, c.illustration, c.description, s.quantite
     FROM confiseries c
     JOIN stocks s ON c.id = s.confiserie_id
@@ -21,6 +22,7 @@ function get_bonbon_info_by_id($id){
 }
 
 function get_all_boutique(){
+    global $PDO;
     $boutiques = requete("SELECT * from boutiques ");
     return $boutiques;
 }
@@ -67,11 +69,18 @@ function get_quantite_by_id($idBoutique,$idBonbon){
 }
 
 function get_boutiques_by_user_id($user_id) {
-    $boutiques = requete("SELECT * FROM boutiques WHERE utilisateur_id = :user_id", array(':user_id' => $user_id));
-    return $boutiques;
+    global $PDO;
+    $query = "SELECT * FROM boutiques WHERE utilisateur_id = ?";
+    $stmt = $PDO->prepare($query);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute([$user_id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
+/*  function get_boutiques_by_user_id($user_id) {
+    $boutiques = requete("SELECT * FROM boutiques WHERE utilisateur_id = :user_id", array(':user_id' => $user_id));
+    return $boutiques;
+} */
 /* test */
 
 function get_all_confiseries() {
@@ -120,5 +129,52 @@ function afficher_Panier($utilisateur_id){
 
 }
 
+
+/* test */
+
+
+function add_confiserie($nom, $type, $prix, $illustration, $description) {
+    global $PDO;
+    $stmt = $PDO->prepare("INSERT INTO confiseries (nom, type, prix, illustration, description) 
+                           VALUES (:nom, :type, :prix, :illustration, :description)");
+    $stmt->execute([
+        ':nom' => $nom,
+        ':type' => $type,
+        ':prix' => $prix,
+        ':illustration' => $illustration,
+        ':description' => $description
+    ]);
+}
+
+
+function update_confiserie($id, $nom, $type, $prix, $illustration, $description) {
+    global $PDO;
+    $stmt = $PDO->prepare("UPDATE confiseries SET nom = :nom, type = :type, prix = :prix, 
+                           illustration = :illustration, description = :description
+                           WHERE id = :id");
+    $stmt->execute([
+        ':nom' => $nom,
+        ':type' => $type,
+        ':prix' => $prix,
+        ':illustration' => $illustration,
+        ':description' => $description,
+        ':id' => $id
+    ]);
+}
+
+
+
+function delete_confiserie($confiserie_id) {
+    global $PDO;
+    $stmt = $PDO->prepare("DELETE FROM confiseries WHERE id = :confiserie_id");
+    $stmt->execute([':confiserie_id' => $confiserie_id]);
+}
+
+/* fin de test */
+
+
+function is_url($string) {
+    return filter_var($string, FILTER_VALIDATE_URL);
+}
 
 ?>
