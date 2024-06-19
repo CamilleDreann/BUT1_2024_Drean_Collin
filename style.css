@@ -215,6 +215,7 @@ font-family: 'RodgerTestBlackItalic';
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    height: 100vh;
 }
 
 .logo-head {
@@ -1033,7 +1034,7 @@ h2{
 }
 .fondBonbon{
     width: 600px;
-    height: 600px;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;

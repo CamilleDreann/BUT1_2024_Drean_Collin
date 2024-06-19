@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="images/icon.png" />
     <title>Accueil Confiz</title>
 </head>
-
 <body>
-
     <?php
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -20,12 +17,11 @@
 
 
     <article>
-        <div class="barNav <?php echo isset($bgClass) ? $bgClass : ''; ?>">
+        <div class="barNav <?php echo isset($bgClass) ? $bgClass : ''; ?>"> 
             <ul class="ul-barNav">
                 <li class="menu"><button class="menu" type="button"><img class="menu-barNav"
                             src="./assets/icon/align-justify.svg" alt="menu"></button></li>
-                <!-- <li class="logo"><a href="index.php"><img class="logo-barNav" src="./assets/icon/logoConfiz.png"
-                            alt="logo confiz"></a></li> -->
+            
                 <li class="user-panier">
 
                     <?php if (isset($_SESSION['username'])): ?>
@@ -43,19 +39,14 @@
                 <a href="gestionUtilisateurs.php"><img class="user-barNav" src="./assets/icon/user-cog.svg" alt="Gérer les utilisateurs"></a>
             <?php endif; ?>
             <?php
-
-
-            if (isset($_SESSION['user_id'])) {
-        ?>
+                if (isset($_SESSION['user_id'])) {
+            ?>
             <a href="panier.php"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
             <?php
-            }
+                }
             ?>
-        </li>
-    </ul>
-
-                </li>
-            </ul>
+            </li>
+        </ul>
 
 
             <div class="menuBoutique">
@@ -80,6 +71,7 @@
                 <a href="index.php"><img class="logo-barNav" src="./assets/icon/logoConfiz.png" alt="logo confiz"></a>
             </div>
         </div>
+            
 
 
 
@@ -90,6 +82,7 @@
             var menuBoutique = document.querySelector(".menuBoutique");
             var body = document.querySelector("body");
             var menubarNav = document.querySelector(".menu-barNav");
+            var logo = document.querySelector(".logo-head");
 
 
 
@@ -98,14 +91,16 @@
                 boutonMenu.classList.toggle('active');
                 if (boutonMenu.classList.contains('active')) {
                     menuBoutique.style.display = 'flex';
-                    body.style.animation = 'none'
+                    body.style.animation = 'none';
                     body.style.overflow = 'hidden';
                     menubarNav.src = 'assets/icon/croix.svg';
+                    logo.style.display = 'none'
                 } else {
                     menuBoutique.style.display = 'none';
                     barnav.style.display = 'flex';
                     body.style.overflow = '';
                     menubarNav.src = 'assets/icon/align-justify.svg';
+                    logo.style.display = 'block'
                 }
             });
         </script>

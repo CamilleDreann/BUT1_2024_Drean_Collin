@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
     if ($role == 'admin') {
-        
+
         if ($action == 'add_boutique') {
             $nom = $_POST['nom'];
             $utilisateur_id = $_POST['utilisateur_id'];
