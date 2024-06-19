@@ -53,10 +53,6 @@
             ?>
         </li>
     </ul>
-                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-                        <a href="gestionUtilisateurs.php"><img class="user-barNav" src="./assets/icon/user-cog.svg"
-                                alt="Gérer les utilisateurs"></a>
-                    <?php endif; ?>
 
                 </li>
             </ul>
