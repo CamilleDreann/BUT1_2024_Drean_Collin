@@ -100,7 +100,7 @@ function delete_stock($boutique_id, $confiserie_id) {
 function get_confiseries_by_boutique_id($boutique_id) {
     $confiseries = requete("SELECT c.id, c.nom, s.quantite FROM confiseries c
                             JOIN stocks s ON c.id = s.confiserie_id
-                            WHERE s.boutique_id = boutique_id");
+                            WHERE s.boutique_id = $boutique_id");
     return $confiseries;
 }
 

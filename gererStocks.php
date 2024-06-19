@@ -1,5 +1,4 @@
 <?php
-include_once("db.php");
 include_once("functions.php");
 $bgClass = "bg-boutique";
 
@@ -7,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-include_once("head.php");
+
 
 if (!isset($_SESSION['role']) || !isset($_SESSION['user_id'])) {
     header("Location: index.php");
@@ -18,9 +17,9 @@ $user_id = $_SESSION['user_id'];
 $role = $_SESSION['role'];
 
 if ($role == 'admin') {
-    $boutiques = get_all_boutique();
+    $boutiques_test = get_all_boutique();
 } elseif ($role == 'gerant') {
-    $boutiques = get_boutiques_by_user_id($user_id);
+    $boutiques_test = get_boutiques_by_user_id($user_id);
 }
 $confiseries = get_all_confiseries();
 
@@ -30,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
     if ($role == 'admin') {
+        
         if ($action == 'add_boutique') {
             $nom = $_POST['nom'];
             $utilisateur_id = $_POST['utilisateur_id'];
@@ -44,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $boutique_id = $_POST['boutique_id'];
             delete_boutique($boutique_id);
             $_SESSION["ajout-boutique"] = "Boutique supprimée avec succès.";
+
+
         } elseif ($action == 'add_confiserie') {
             $nom = $_POST['nom'];
             $type = $_POST['type'];
@@ -78,12 +80,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 delete_stock($boutique_id, $confiserie_id);
                 $_SESSION["ajout-bonbon"] = "Bonbon supprimé avec succès.";
             }
+            header("Location: gererStocks.php");
+            exit;
     }
-
-    
    
 }
-
+ include_once("head.php"); 
 
 ?>
 
@@ -111,7 +113,7 @@ if (isset($_SESSION["ajout-confiserie"])) {
 
 
 <div class="div-liste-stock">
-<?php foreach ($boutiques as $boutique): ?>
+<?php foreach ($boutiques_test as $boutique): ?>
     <h3 class="title-article-gererStock">Confiseries dans <?= htmlspecialchars($boutique['nom']) ?></h3>
     <ul>
         <?php
@@ -134,7 +136,7 @@ if (isset($_SESSION["ajout-confiserie"])) {
             <div class="div-boutiqueAdd">
                 <label class="label-boutique" for="boutique_id">Boutique :</label>
                 <select class="select-boutique" name="boutique_id" required>
-                    <?php foreach ($boutiques as $boutique) { ?>
+                    <?php foreach ($boutiques_test as $boutique) { ?>
                         <option value="<?= $boutique['id'] ?>"><?= $boutique['nom'] ?></option>
                     <?php } ?>
                 </select>
@@ -162,7 +164,7 @@ if (isset($_SESSION["ajout-confiserie"])) {
             <div class="div-boutiqueAdd">
                 <label class="label-boutique" for="boutique_id">Boutique :</label>
                 <select class="select-boutique" name="boutique_id" required>
-                    <?php foreach ($boutiques as $boutique) { ?>
+                    <?php foreach ($boutiques_test as $boutique) { ?>
                         <option value="<?= $boutique['id'] ?>"><?= $boutique['nom'] ?></option>
                     <?php } ?>
                 </select>
@@ -241,7 +243,7 @@ if (isset($_SESSION["ajout-confiserie"])) {
         <div class="div-boutiqueAdd">
         <label class="label-boutique" for="boutique_id">Boutique :</label>
         <select class="select-boutique" name="boutique_id" required>
-            <?php foreach ($boutiques as $boutique) { ?>
+            <?php foreach ($boutiques_test as $boutique) { ?>
                 <option value="<?= $boutique['id'] ?>"><?= $boutique['nom'] ?></option>
             <?php } ?>
         </select>
