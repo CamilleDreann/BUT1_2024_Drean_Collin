@@ -635,6 +635,8 @@ width: 40%;
     position: relative;
     z-index: 1;
     transition: transform 0.1s ease-in-out;
+    border: inherit;
+    cursor: pointer;
 }
 a:visited{
     color: inherit;
@@ -649,6 +651,9 @@ a:visited{
 .boutonVoir:hover{
     transform:translateX(0.5rem) translateY(-0.5rem) translateZ(0px);
     transition: transform 0.1s ease-in-out;
+}
+.panier .boutonVoir{
+    background-color: var(--red);
 }
 
 .remplissage{
@@ -1513,6 +1518,7 @@ tbody td {
 }
 .fondpanier{
     background-color: var(--main-color);
+    height: 100vh;
 }
 
 .bonbonPanier{
@@ -1538,6 +1544,10 @@ tbody td {
 .infoBonbonPanier h2{
     font-size: 4rem;
 }
+.infoBonbonPanier .posBouton{
+    justify-content: inherit;
+    margin-top: 15%;
+}
 .panier hr{
     margin: 2% 5%;
     background-color: black;
@@ -1550,4 +1560,9 @@ tbody td {
     background-color: white;
     border-radius: 20px;
     border: black 3px solid;
+}
+.basPanier{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

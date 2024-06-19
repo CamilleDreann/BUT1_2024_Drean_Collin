@@ -173,13 +173,19 @@ include_once("footer.php");
 
                 const quantite = document.querySelector('.quantite');
                 let max = parseInt(quantite.textContent);
+                console.log(max,currentQuantity)
 
                 currentQuantity += amount;
-                if (currentQuantity < 0) {
+                if (max === 0) {
+                    alert("plus de stock");
                     currentQuantity = 0;
                 }
                 else if (currentQuantity > max) {
                     currentQuantity = max;
+                }
+                else if (currentQuantity < 0) {
+
+                    currentQuantity = 0;
                 }
                 compteur.textContent = currentQuantity;
                 }
@@ -197,11 +203,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 document.querySelector('.BtnPanier').addEventListener('click', () => {
-                const compteur = document.querySelector('.compteur');
-                const quantiteProduitInput = document.getElementById('quantiteProduit');
-                quantiteProduitInput.value = compteur.textContent;
-                document.getElementById('panierForm').submit();
-            });
+    const compteur = document.querySelector('.compteur');
+    const quantiteProduitInput = document.getElementById('quantiteProduit');
+    const currentQuantity = parseInt(compteur.textContent);
+
+    if (currentQuantity === 0) {
+        alert('La quantité doit être supérieure à zéro pour ajouter au panier.');
+        return;
+    }
+
+    quantiteProduitInput.value = compteur.textContent;
+    document.getElementById('panierForm').submit();
+});
 </script>
 
 

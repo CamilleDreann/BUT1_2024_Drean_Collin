@@ -37,9 +37,15 @@ include_once("functions.php");
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                 <a href="gestionUtilisateurs.php"><img class="user-barNav" src="./assets/icon/user-cog.svg" alt="Gérer les utilisateurs"></a>
             <?php endif; ?>
+            <?php
 
-            <a href="#"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
+
+            if (isset($_SESSION['user_id'])) {
+        ?>
             <a href="panier.php"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
+            <?php
+            }
+            ?>
         </li>
     </ul>
 

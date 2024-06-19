@@ -101,24 +101,44 @@ function get_confiseries_by_boutique_id($boutique_id) {
 
 
 /* ------ */
-function add_panier($utilisateur_id,$confiserie_id,$quantite){
+function add_panier($utilisateur_id,$confiserie_id,$quantite,$idBoutique){
 global $PDO;
-$stmt = $PDO->prepare("INSERT INTO `panier` (`utilisateur_id`, `confiserie_id`, `quantite`) VALUES (:utilisateur_id, :confiserie_id, :quantite)");
+$stmt = $PDO->prepare("INSERT INTO `panier` (`utilisateur_id`, `confiserie_id`, `quantite`, `boutique_id` ) VALUES (:utilisateur_id, :confiserie_id, :quantite, :boutique_id)
+ON DUPLICATE KEY UPDATE quantite = quantite + VALUES(quantite);");
 $stmt->execute([
     ':utilisateur_id' => $utilisateur_id,
     ':confiserie_id' => $confiserie_id,
-    ':quantite' => $quantite
+    ':quantite' => $quantite,
+    ':boutique_id'=> $idBoutique
 ]);
 }
 
 function afficher_Panier($utilisateur_id){
-    $confiseries = requete("SELECT p.*, c.nom AS nom_confiserie, c.type, c.prix, c.illustration, c.description
+    $panier = requete("SELECT p.*, c.nom AS nom_confiserie, c.type, c.prix, c.illustration, c.description
                         FROM panier p
                         JOIN confiseries c ON p.confiserie_id = c.id
                         WHERE p.utilisateur_id = $utilisateur_id;");
-        return $confiseries;
+        return $panier;
 
 }
 
+function retrait_stock($quantite,$boutique_id,$confiserie_id){
+    $stock = requete("UPDATE stocks
+    SET quantite = quantite - $quantite
+    WHERE boutique_id = $boutique_id AND confiserie_id = $confiserie_id;");
+    return $stock;
+}
 
+function vider_panier($utilisateur_id,$idpanier ){
+    $panier = requete("DELETE FROM panier
+    WHERE utilisateur_id = $utilisateur_id AND id = $idpanier;");
+    return $panier;
+}
+
+function retour_stock($confiserie_id,$boutique_id){
+    $stock = requete("UPDATE stocks s
+    JOIN panier p ON s.confiserie_id = p.confiserie_id AND s.boutique_id = p.boutique_id
+    SET s.quantite = s.quantite + p.quantite
+    WHERE p.confiserie_id = $confiserie_id AND p.boutique_id = $boutique_id;");
+}
 ?>
