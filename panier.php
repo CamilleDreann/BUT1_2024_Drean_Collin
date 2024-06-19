@@ -1,6 +1,8 @@
 <?php
 $bgClass = "bg-panier";
-include_once("head.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include_once("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -10,14 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         retrait_stock($_POST["quantiteProduit"],$_POST["idboutique"],$_POST["id"]);
     }
     elseif (isset($_POST['viderPanier'])) {
-        print_r($_POST);
         retour_stock($_POST["id"],$_POST["idboutique"]);
         vider_panier($_SESSION["user_id"], $_POST["idpanier"]);
-    }
+    } 
     header('Location: panier.php');
     exit();
 } 
-
+include_once("head.php");
 ?>
 <main class="fondpanier">
     <article class="panier">
@@ -62,6 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </article>
 </main>
 
-
-<?php 
-include_once("footer.php");?>

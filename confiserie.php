@@ -2,7 +2,6 @@
 
 $bgClass = "bg-confiserie";
 include_once("head.php");
-include_once("functions.php");
 
 
 $nom = get_nom_boutique_by_id($_GET["id"]);

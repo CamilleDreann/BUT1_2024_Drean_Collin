@@ -56,8 +56,8 @@ include_once("head.php");
             <tr>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Rôle actuel</th>
-                <th>Nouveau rôle</th>
+                <th>Role actuel</th>
+                <th>Nouveau role</th>
                 <th>Action</th>
             </tr>
         </thead>
