@@ -16,6 +16,7 @@ $role = $_SESSION['role'];
 $boutiques = ($role == 'admin') ? get_all_boutique() : get_boutiques_by_user_id($user_id);
 $confiseries = get_all_confiseries();
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST['action'];
 
