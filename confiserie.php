@@ -22,41 +22,35 @@ $nom = get_nom_boutique_by_id($_GET["id"]);
     </div>
     <div class="posConfiserie">
         <?php 
-                $colors = ['--main-color', '--rose-primary', '--pink', '--red', '--green'];
-                $colorCount = count($colors);
-                $infoConfiserie = get_confiserie_info_by_boutique_id($_GET["id"]);
-                    foreach ($infoConfiserie as $key => $value){
-                    $colorIndex = $key % $colorCount;
-                    $currentColor = $colors[$colorIndex];
-                    if ($value["quantite"]==0){?>
-                        <div class="blocConfiserie grey" style="background-color: var(<?php echo $currentColor; ?>);">
-                            <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
-                            <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>
-                            <h3 class="nomBonbon"><?php echo $value['nom']; ?></h3>
-                        </div>
-                        <?php
-                    }
-                    else {
-
-              ?>      
-            <div class="blocConfiserie" style="background-color: var(<?php echo $currentColor; ?>);">
-            <form action="produitDetaille.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                <input type="hidden" name="color" value="<?php echo $currentColor; ?>">
-                <input type="hidden" name="boutique" value="<?php echo $nom[0]["nom"]; ?>">
-                <input type="hidden" name="idboutique" value="<?php echo $nom[0]["id"]; ?>">
-                <button type="submit" class="btnConfiserie">
-                    <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
-                    <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>
-                    <h3 class="nomBonbon"><?php echo $value['nom']; ?></h3>
-                    <button class="panierConfiserie"><img src="assets/icon/ph_basket-bold.svg" alt="panier"></button>
-                </button>
-            </form>
-            </div>
-
-
-        <?php 
-                    }
+            $colors = ['--main-color', '--rose-primary', '--pink', '--red', '--green'];
+            $colorCount = count($colors);
+            $infoConfiserie = get_confiserie_info_by_boutique_id($_GET["id"]);
+            foreach ($infoConfiserie as $key => $value) {
+                $colorIndex = $key % $colorCount;
+                $currentColor = $colors[$colorIndex];
+                $illustration = is_url($value['illustration']) ? $value['illustration'] : "assets/images/bonbons/" . $value['illustration'];
+                if ($value["quantite"] == 0) { ?>
+                    <div class="blocConfiserie grey" style="background-color: var(<?php echo $currentColor; ?>);">
+                        <img class="sachetbonbon" src="<?php echo $illustration; ?>" alt="">
+                        <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>
+                        <h3 class="nomBonbon"><?php echo $value['nom']; ?></h3>
+                    </div>
+                <?php } else { ?>
+                    <div class="blocConfiserie" style="background-color: var(<?php echo $currentColor; ?>);">
+                        <form action="produitDetaille.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                            <input type="hidden" name="color" value="<?php echo $currentColor; ?>">
+                            <input type="hidden" name="boutique" value="<?php echo $nom[0]["nom"]; ?>">
+                            <input type="hidden" name="idboutique" value="<?php echo $nom[0]["id"]; ?>">
+                            <button type="submit" class="btnConfiserie">
+                                <img class="sachetbonbon" src="<?php echo $illustration; ?>" alt="">
+                                <h3 class="prixConfiserie"><?php echo $value['prix']; ?> €</h3>
+                                <h3 class="nomBonbon"><?php echo $value['nom']; ?></h3>
+                                <button class="panierConfiserie"><img src="assets/icon/ph_basket-bold.svg" alt="panier"></button>
+                            </button>
+                        </form>
+                    </div>
+                <?php }
             }
         ?>
     </div>

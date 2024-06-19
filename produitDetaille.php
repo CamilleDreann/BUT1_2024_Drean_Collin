@@ -13,6 +13,7 @@ include_once("head.php");
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
 $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
 $nom = get_nom_boutique_by_id($_POST['idboutique']);
+$illustration = is_url($value['illustration']) ? $value['illustration'] : "assets/images/bonbons/" . $value['illustration'];
 
 
 
