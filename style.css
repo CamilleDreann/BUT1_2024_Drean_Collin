@@ -170,23 +170,18 @@ font-family: 'RodgerTestBlackItalic';
     flex-direction: column;
 }
 
-.barNav .menuBoutique{
-    height: 100vh;
-}
-
-
-
 .ul-barNav {
     display: flex;
-    justify-content: space-between;
     width: 100%;
+    justify-content: space-between;
     list-style: none;
-    padding: 0 25px;
+    padding: 20px 20px;
 }
 
 .ul-barNav > li {
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
 }
 
 
@@ -222,10 +217,19 @@ font-family: 'RodgerTestBlackItalic';
     justify-content: center;
 }
 
+.logo-head {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
 .logo-barNav {
     height: 100px;
     width: 100px;
     object-fit: cover;
+    
 }
 
 .user-barNav {
