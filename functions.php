@@ -101,7 +101,24 @@ function get_confiseries_by_boutique_id($boutique_id) {
 
 
 /* ------ */
+function add_panier($utilisateur_id,$confiserie_id,$quantite){
+global $PDO;
+$stmt = $PDO->prepare("INSERT INTO `panier` (`utilisateur_id`, `confiserie_id`, `quantite`) VALUES (:utilisateur_id, :confiserie_id, :quantite)");
+$stmt->execute([
+    ':utilisateur_id' => $utilisateur_id,
+    ':confiserie_id' => $confiserie_id,
+    ':quantite' => $quantite
+]);
+}
 
+function afficher_Panier($utilisateur_id){
+    $confiseries = requete("SELECT p.*, c.nom AS nom_confiserie, c.type, c.prix, c.illustration, c.description
+                        FROM panier p
+                        JOIN confiseries c ON p.confiserie_id = c.id
+                        WHERE p.utilisateur_id = $utilisateur_id;");
+        return $confiseries;
+
+}
 
 
 ?>

@@ -34,11 +34,15 @@ include_once("functions.php");
                 <a href="gererStocks.php"><img class="shop-barNav" src="./assets/icon/store.svg" alt="Gérer Stock ou boutique selon le rôle"></a>                    
                 <?php endif; ?>
 
+<<<<<<< Updated upstream
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                 <a href="gestionUtilisateurs.php"><img class="user-barNav" src="./assets/icon/user-cog.svg" alt="Gérer les utilisateurs"></a>
             <?php endif; ?>
 
             <a href="#"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
+=======
+            <a href="panier.php"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg" alt="logo panier"></a>
+>>>>>>> Stashed changes
         </li>
     </ul>
 

@@ -14,6 +14,9 @@ include_once("functions.php");
 $infoBonbon =  get_bonbon_info_by_id($_POST['id']);
 $quantite = get_quantite_by_id($_POST['idboutique'],$_POST['id']);
 $nom = get_nom_boutique_by_id($_POST['idboutique']);
+
+
+
 ?>
 <section class="posBonbon">
     <div class="fondBonbon" style="background-color: var(<?php echo $_POST['color']; ?>);">
@@ -45,19 +48,32 @@ $nom = get_nom_boutique_by_id($_POST['idboutique']);
         echo $feur[0]["quantite"];
         ?></h3>
 
+<?php $user_id = isset($_SESSION['user_id']);
+
+
+    if (empty($user_id)) {
+        echo '<div class="erreur"> Connectez-vous pour ajouter au panier. </div>';
+    }
+    else {
+        ?>
 
 
 
-        <div class="blocbtn">
-            <button class="BtnPanier">
-                <h3 class="textBtnPan">Ajouter au panier</h3>
-                <img src="assets/icon/ph_basket-bold.svg" alt="panier">
-            </button>
-            <div class="fondBtnPanier"></div>
-        </div>
-    </div>
+        <form method="post" action="panier.php" id="panierForm">
+            <input type="hidden" name="quantiteProduit" id="quantiteProduit">
+            <input type="hidden" name="idboutique" value="<?php echo $_POST['idboutique']; ?>">
+            <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
+            <input type="hidden" name="insertPanier" value="add">
+            <div class="blocbtn">
+                <button type="button" class="BtnPanier" name="insertPanier">
+                    <h3 class="textBtnPan">Ajouter au panier</h3>
+                    <img src="assets/icon/ph_basket-bold.svg" alt="panier">
+                </button>
+                <div class="fondBtnPanier"></div>
+            </div>
+        </form>
+        <?php  }?>
 </section>
-
 
 
 
@@ -94,7 +110,7 @@ $nom = get_nom_boutique_by_id($_POST['idboutique']);
 
                         while ($totalItems < 17) {
                             foreach ($infoConfiserie as $key => $value){
-                                if ($totalItems >= 17) break; // Sortir de la boucle si 17 éléments ont été ajoutés
+                                if ($totalItems >= 17) break; 
                                 
                                 $colorIndex = $totalItems % $colorCount;
                                 $currentColor = $colors[$colorIndex];
@@ -106,7 +122,7 @@ $nom = get_nom_boutique_by_id($_POST['idboutique']);
                                     <input type="hidden" name="idboutique" value="<?php echo $nom[0]["id"]; ?>">
                                     <button type="submit" class="btnConfiserie">
                                         <div class="bonbon" style="background-color: var(<?php echo $currentColor; ?>);">
-                                            <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="">
+                                            <img class="sachetbonbon" src="assets/images/bonbons/<?php echo $value['illustration']; ?>" alt="<?php echo $value['nom']; ?>">
                                         </div>
                                     </button>
                                 </form>
@@ -123,6 +139,7 @@ $nom = get_nom_boutique_by_id($_POST['idboutique']);
 include_once("footer.php");
 
 ?>
+
 <script>
 
     const BtnPanier = document.querySelector('.BtnPanier');
@@ -179,6 +196,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateQuantity(-1);
     });
 })
+document.querySelector('.BtnPanier').addEventListener('click', () => {
+                const compteur = document.querySelector('.compteur');
+                const quantiteProduitInput = document.getElementById('quantiteProduit');
+                quantiteProduitInput.value = compteur.textContent;
+                document.getElementById('panierForm').submit();
+            });
 </script>
 
 

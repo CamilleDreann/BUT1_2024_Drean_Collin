@@ -96,8 +96,13 @@ a:link{color: inherit;}
     background-color:var(--yellow);
 }
 
+<<<<<<< Updated upstream
 .bg-gestion{
     background-color: var(--rose-primary);
+=======
+.bg-panier{
+    background-color:var(--main-color);
+>>>>>>> Stashed changes
 }
 /*  */
 
@@ -1426,6 +1431,7 @@ margin: 10px 0;
     cursor: pointer;
 }
 
+<<<<<<< Updated upstream
 
 /* Gestion utilisateurs */
 
@@ -1500,3 +1506,53 @@ tbody td {
 
 
 /* fin de gestion utilisateurs */
+=======
+.erreur{
+    font-family: 'RodgerTestBlackItalic';
+}
+
+.panier{
+    background-color: var(--yellow);
+    margin: 0 10%;
+}
+.fondpanier{
+    background-color: var(--main-color);
+}
+
+.bonbonPanier{
+    display: flex;
+    flex-direction: row;
+}
+.bonbonPanier img{
+    margin: 0 5%;
+}
+
+.blocPrix{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    text-align: end;
+    margin-right: 5%;
+}
+
+.infoBonbonPanier{
+    width: 40%;
+}
+.infoBonbonPanier h2{
+    font-size: 4rem;
+}
+.panier hr{
+    margin: 2% 5%;
+    background-color: black;
+    height: 5px;
+    border: none;
+}
+.prixTotal{
+    margin: 0 30%;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    border: black 3px solid;
+}
+>>>>>>> Stashed changes
