@@ -67,7 +67,7 @@ function get_quantite_by_id($idBoutique,$idBonbon){
 }
 
 function get_boutiques_by_user_id($user_id) {
-    $boutiques = requete("SELECT * FROM boutiques WHERE utilisateur_id = :user_id", array(':user_id' => $user_id));
+    $boutiques = requete("SELECT * FROM boutiques WHERE utilisateur_id = $user_id");
     return $boutiques;
 }
 
