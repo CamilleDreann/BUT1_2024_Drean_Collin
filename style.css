@@ -96,13 +96,11 @@ a:link{color: inherit;}
     background-color:var(--yellow);
 }
 
-<<<<<<< Updated upstream
 .bg-gestion{
     background-color: var(--rose-primary);
-=======
+}
 .bg-panier{
     background-color:var(--main-color);
->>>>>>> Stashed changes
 }
 /*  */
 
@@ -1431,7 +1429,6 @@ margin: 10px 0;
     cursor: pointer;
 }
 
-<<<<<<< Updated upstream
 
 /* Gestion utilisateurs */
 
@@ -1506,7 +1503,6 @@ tbody td {
 
 
 /* fin de gestion utilisateurs */
-=======
 .erreur{
     font-family: 'RodgerTestBlackItalic';
 }
@@ -1555,4 +1551,3 @@ tbody td {
     border-radius: 20px;
     border: black 3px solid;
 }
->>>>>>> Stashed changes
