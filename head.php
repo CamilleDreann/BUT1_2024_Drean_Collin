@@ -58,8 +58,6 @@
                                 alt="Gérer les utilisateurs"></a>
                     <?php endif; ?>
 
-                    <a href="panier.php"><img class="panier-barNav" src="./assets/icon/ph_basket-bold.svg"
-                            alt="logo panier"></a>
                 </li>
             </ul>
 
