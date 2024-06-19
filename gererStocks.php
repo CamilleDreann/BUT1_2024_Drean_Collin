@@ -25,7 +25,7 @@ if ($role == 'admin') {
 $confiseries = get_all_confiseries();
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST['action'];
    
 

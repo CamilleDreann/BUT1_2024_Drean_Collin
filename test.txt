@@ -1,3 +1,0 @@
-bonjour ceci est un test du commit
-
-Salut c'est Ethan, je teste pour voir si cela marche. ;)
